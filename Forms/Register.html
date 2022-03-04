@@ -29,15 +29,18 @@
     <form class="content" method="post" action="Congrats.html">
 
         <!-- Username -->
-        <div><label for="Username">*Username:<input type="text" name="Username" required></label></div>
+        <div><label for="Username">*Username:<input type="text" name="Username" maxlength="16" required></label></div>
         <!-- Password -->
-        <div><label for="Password">*Password:<input type="password" name="Password" required></label></div><br>
+        <div><label for="Password">*Password:<input type="password" name="Password" required maxlength="20"></label>
+        </div><br>
         <!-- First Name -->
-        <div><label for="Firstname">*First Name:</label><input type="text" name="Firstname" required></label></div>
+        <div><label for="Firstname">*First Name:</label><input type="text" name="Firstname" required
+                maxlength="20"></label></div>
         <!-- Last Name -->
-        <div><label for="Lastname">*Last Name:<input type="text" name="Lastname" required></label></div><br>
+        <div><label for="Lastname">*Last Name:<input type="text" name="Lastname" required maxlength="20"></label></div>
+        <br>
         <!-- Email -->
-        <div><label for="Email">*E-mail:<input type="email" name="Email" required></label></div>
+        <div><label for="Email">*E-mail:<input type="email" name="Email" required maxlength="40"></label></div>
         <!-- Genders -->
         <input type="radio" id="Male" name="Gender" value="Male">
         <label for="Male">Male</label>
@@ -56,8 +59,8 @@
                 <option selected>Vilnius</option>
             </select></div>
         <!-- Address -->
-        <div>Current address:<label><input name="Address" type="text">Apartment nr.:<input name="Address1"
-                    type="text"></label></div>
+        <div>Current address:<label><input name="Address" type="text" maxlength="40">Apartment nr.:<input
+                    name="Address1" type="text" maxlength="10"></label></div>
         <!-- Description -->
         <div><label for="Description">*Description:</div><textarea name="Description" maxlength="200" rows="5"
             cols="50"></textarea></label>
@@ -69,6 +72,7 @@
         <div>
             <button type="reset">Reset</button>
             <button type="submit">Register</button>
+            
         </div>
     </form>
 </body>
