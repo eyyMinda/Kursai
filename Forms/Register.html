@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Register</title>
+    <style>
+        #Motiv {
+            position: fixed;
+            right: 0;
+            bottom: 1;
+            min-width: 100%;
+            min-height: 100%;
+        }
+
+        .content {
+            position: fixed;
+            bottom: 1;
+            background: rgba(0, 0, 0, 0.616);
+            color: #f1f1f1;
+            width: 30%;
+            padding: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <img src="../Media/src/assets/Motiv.jpg" id="Motiv">
+
+    <form class="content" method="post" action="Congrats.html">
+
+        <!-- Username -->
+        <div><label for="Username">*Username:<input type="text" name="Username" required></label></div>
+        <!-- Password -->
+        <div><label for="Password">*Password:<input type="password" name="Password" required></label></div><br>
+        <!-- First Name -->
+        <div><label for="Firstname">*First Name:</label><input type="text" name="Firstname" required></label></div>
+        <!-- Last Name -->
+        <div><label for="Lastname">*Last Name:<input type="text" name="Lastname" required></label></div><br>
+        <!-- Email -->
+        <div><label for="Email">*E-mail:<input type="email" name="Email" required></label></div>
+        <!-- Genders -->
+        <input type="radio" id="Male" name="Gender" value="Male">
+        <label for="Male">Male</label>
+        <input type="radio" id="Female" name="Gender" value="Female">
+        <label for="Female">Female</label>
+        <input type="radio" id="Other" name="Gender" value="Other">
+        <label for="Other">Other</label>
+        <!-- Date of birth -->
+        <div>*Date of birth:<label for="Birth"><input type="date" required></label></div>
+        <!-- City of birth -->
+        <div>City of birth:<select>
+                <option>Panevėžys</option>
+                <option>Kaunas</option>
+                <option>Klaipėda</option>
+                <option>Utena</option>
+                <option selected>Vilnius</option>
+            </select></div>
+        <!-- Address -->
+        <div>Current address:<label><input name="Address" type="text">Apartment nr.:<input name="Address1"
+                    type="text"></label></div>
+        <!-- Description -->
+        <div><label for="Description">*Description:</div><textarea name="Description" maxlength="200" rows="5"
+            cols="50"></textarea></label>
+        <!-- Subscribe to newsletter -->
+        <label>
+            <div>Subscribe</div><input type="checkbox">
+        </label>
+        <!-- Buttons Reset and Register -->
+        <div>
+            <button type="reset">Reset</button>
+            <button type="submit">Register</button>
+        </div>
+    </form>
+</body>
+
+</html>
