@@ -6,3 +6,16 @@ mkdir - make directory
 rmdir
 echo - create file
 rm - remove file
+
+////////Git\\\\\\\\\
+
+init
+clone
+///Add
+///Commit
+///Push
+pull
+branch
+checkout
+status
+graph
