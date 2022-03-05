@@ -29,8 +29,9 @@
             font-size: 18px;
         }
     </style>
-    <!--Random Link-->
+
     <script>
+        // Random Link
         let links = [];
         links[0] = "Congrats.html";
         links[1] = "Success.html";
@@ -39,6 +40,20 @@
             window.location.href = links[i];
             return false;
         }
+
+        // Send username to localStorage
+        function passvalues() {
+            var User = document.getElementById("Username").value;
+            localStorage.setItem("textvalue", User);
+            return false;
+        }
+
+        //Multiple functions to one
+        function Redirect() {
+            passvalues();
+            openLink();
+        }
+
     </script>
 
 </head>
@@ -50,7 +65,8 @@
     <form class="content" action="Success.html" method="post" target="_blank" id="myform">
 
         <!-- Username -->
-        <div><label for="Username">*Username:<br><input type="text" name="Username" maxlength="16" required></label>
+        <div><label for="Username">*Username:<br><input type="text" name="Username" id="Username" maxlength="16"
+                    required></label>
         </div>
         <!-- Password -->
         <div><label for="Password">*Password:<br><input type="password" name="Password" required maxlength="20"></label>
@@ -95,7 +111,7 @@
         <!-- Buttons Reset and Register -->
         <div>
             <button class="btn" type="reset">Reset</button>
-            <button class="btn" type="submit" onclick="openLink();">Register</button>
+            <button class="btn" type="submit" onclick="Redirect();">Register</button>
         </div>
     </form>
 </body>

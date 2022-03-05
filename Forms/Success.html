@@ -29,9 +29,10 @@
 </head>
 
 <body>
-    <h1 class="center">Your Registration was succesful! </h1>
+    <h1 class="center">Thank you for registering <span id="Username"></span>!</h1>
     <a class="center blink" href="Congrats.html"><b>Click here to win a free Laptop!!!</b></a>
-
+    <!--Get entered Username-->
+    <script>document.getElementById("Username").innerHTML = localStorage.getItem("textvalue");</script>
     <form></form>
 </body>
 
