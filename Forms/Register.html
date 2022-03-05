@@ -20,24 +20,48 @@
             width: 30%;
             padding: 20px;
         }
+
+        .btn {
+            height: 30px;
+            width: 100px;
+            background: #125288;
+            color: #fff;
+            font-size: 18px;
+        }
     </style>
+    <!--Random Link-->
+    <script>
+        let links = [];
+        links[0] = "Congrats.html";
+        links[1] = "Success.html";
+        function openLink() {
+            var i = ~~(Math.random() * links.length);
+            window.location.href = links[i];
+            return false;
+        }
+    </script>
+
 </head>
 
 <body>
+    <!--Background-->
     <img src="../Media/src/assets/Motiv.jpg" id="Motiv">
 
-    <form class="content" method="post" action="Congrats.html">
+    <form class="content" method="post" target="_blank">
 
         <!-- Username -->
-        <div><label for="Username">*Username:<input type="text" name="Username" maxlength="16" required></label></div>
+        <div><label for="Username">*Username:<input type="text" name="Username" maxlength="16" required></label>
+        </div>
         <!-- Password -->
         <div><label for="Password">*Password:<input type="password" name="Password" required maxlength="20"></label>
         </div><br>
         <!-- First Name -->
         <div><label for="Firstname">*First Name:</label><input type="text" name="Firstname" required
-                maxlength="20"></label></div>
+                maxlength="20"></label>
+        </div>
         <!-- Last Name -->
-        <div><label for="Lastname">*Last Name:<input type="text" name="Lastname" required maxlength="20"></label></div>
+        <div><label for="Lastname">*Last Name:<input type="text" name="Lastname" required maxlength="20"></label>
+        </div>
         <br>
         <!-- Email -->
         <div><label for="Email">*E-mail:<input type="email" name="Email" required maxlength="40"></label></div>
@@ -70,9 +94,8 @@
         </label>
         <!-- Buttons Reset and Register -->
         <div>
-            <button type="reset">Reset</button>
-            <button type="submit">Register</button>
-            
+            <button class="btn" type="reset">Reset</button>
+            <button class="btn" type="submit" onclick="openLink();">Register</button>
         </div>
     </form>
 </body>

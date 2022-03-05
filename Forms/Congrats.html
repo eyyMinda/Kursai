@@ -11,14 +11,34 @@
             scale: 100%;
             min-width: 100%;
             min-height: 100%;
+            margin-left: -100px;
+        }
+
+        .content {
+            padding-top: 15%;
+            padding-left: 42%;
+        }
+
+        .gif {
+            position: absolute;
+            margin-left: 30%;
+            margin-top: 5%;
         }
     </style>
 </head>
 
 <body>
+    <!--Background-->
     <img id="Congratsbg" src="../Media\src\assets\laptop.png">
-    <form id="content">
-        <audio controls src="../Media/src/assets/Congrats.mp3" loop></audio>
+    <form class="content">
+
+        <!--Play message. Should be autoplay -.- #BringBackSpam #MakeInternetGreatAgain-->
+        <audio controls src="../Media/src/assets/Congrats.mp3" loop autoplay></audio>
+
+        <!--Gif spam windows-->
+        <div><a href="Congrats.html" target="_blank"><img
+                    src="https://64.media.tumblr.com/0c8c1e0d7d537ac91605368352204dc3/tumblr_nx2g5wRbnQ1u9rrtbo1_500.gifv"
+                    alt="Congratsgif" class="gif"></div></a>
     </form>
 </body>
 
