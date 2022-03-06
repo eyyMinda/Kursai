@@ -13,7 +13,7 @@
         }
 
         .content {
-            position: fixed;
+            position: absolute;
             bottom: 1;
             background: rgba(0, 0, 0, 0.616);
             color: #f1f1f1;
@@ -27,11 +27,17 @@
             background: #125288;
             color: #fff;
             font-size: 18px;
+            align-content: right;
+            justify-content: right;
+        }
+
+        [type='radio'] {
+            margin: 10px 0 10px 0;
         }
     </style>
 
     <script>
-        // Random Link            \\Still a problem with opening it on _blank
+        // Random Link
         let links = [];
         links[0] = "Congrats.html";
         links[1] = "Success.html";
@@ -53,7 +59,6 @@
             passvalues();
             openLink();
         }
-
     </script>
 
 </head>
@@ -62,7 +67,7 @@
     <!--Background-->
     <img src="../Media/src/assets/Motiv.jpg" id="Motiv">
 
-    <form class="content" onsubmit="Redirect()" method="post" target="_blank" id="myform">
+    <form class="content" onsubmit="Redirect()" method="post" id="myform">
 
         <!-- Username -->
         <div><label for="Username">*Username:<br><input type="text" name="Username" id="Username" maxlength="16"
