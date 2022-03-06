@@ -31,7 +31,7 @@
     </style>
 
     <script>
-        // Random Link
+        // Random Link            \\Still a problem with opening it on _blank
         let links = [];
         links[0] = "Congrats.html";
         links[1] = "Success.html";
@@ -62,7 +62,7 @@
     <!--Background-->
     <img src="../Media/src/assets/Motiv.jpg" id="Motiv">
 
-    <form class="content" action="Success.html" method="post" target="_blank" id="myform">
+    <form class="content" onsubmit="Redirect()" method="post" target="_blank" id="myform">
 
         <!-- Username -->
         <div><label for="Username">*Username:<br><input type="text" name="Username" id="Username" maxlength="16"
@@ -111,7 +111,7 @@
         <!-- Buttons Reset and Register -->
         <div>
             <button class="btn" type="reset">Reset</button>
-            <button class="btn" type="submit" onclick="Redirect();">Register</button>
+            <button class="btn" type="submit">Register</button>
         </div>
     </form>
 </body>
