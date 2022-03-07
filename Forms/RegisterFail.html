@@ -32,12 +32,11 @@
     <!--Random Link-->
     <script>
         var myForm = document.getElementById('myform');
-        links = ['Congrats.html', 'Success.html'];
-
         myForm.addEventListener('submit', function (event) {
-            var randLink = links[Math.floor(Math.random() * links.length)];
             event.preventDefault();
+            links = ['Congrats.html', 'Success.html'];
             myForm.action = randLink;
+            var randLink = links[Math.floor(Math.random() * links.length)];
             myForm.submit();
         });
     </script>

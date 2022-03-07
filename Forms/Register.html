@@ -43,7 +43,7 @@
         links[1] = "Success.html";
         function openLink() {
             var i = ~~(Math.random() * links.length);
-            window.location.href = links[i];
+            myForm.action = links[i]
             return false;
         }
 
@@ -67,7 +67,7 @@
     <!--Background-->
     <img src="../Media/src/assets/Motiv.jpg" id="Motiv">
 
-    <form class="content" onsubmit="Redirect()" method="post" id="myform">
+    <form class="content" onsubmit="Redirect()" action="Success.html" method="post" id="myForm">
 
         <!-- Username -->
         <div><label for="Username">*Username:<br><input type="text" name="Username" id="Username" maxlength="16"
