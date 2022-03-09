@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Register</title>
+    <style>
+        #Motiv {
+            position: fixed;
+            right: 0;
+            bottom: 1;
+            min-width: 100%;
+            min-height: 100%;
+        }
+
+        .content {
+            position: absolute;
+            bottom: 1;
+            background: rgba(0, 0, 0, 0.616);
+            color: #f1f1f1;
+            width: 30%;
+            padding: 20px;
+        }
+
+        .btn {
+            height: 30px;
+            width: 100px;
+            background: #125288;
+            color: #fff;
+            font-size: 18px;
+            align-content: right;
+            justify-content: right;
+        }
+
+        [type='radio'] {
+            margin: 10px 0 10px 0;
+        }
+    </style>
+
+    <script>
+        // Random Link
+        let links = [];
+        links[0] = "Congrats.html";
+        links[1] = "Success.html";
+        function openLink() {
+            var i = ~~(Math.random() * links.length);
+            myForm.action = links[i]
+            return false;
+        }
+
+        // Send username to localStorage
+        function passvalues() {
+            var User = document.getElementById("Username").value;
+            localStorage.setItem("textvalue", User);
+            return false;
+        }
+
+        //Multiple functions to one
+        function Redirect() {
+            passvalues();
+            openLink();
+        }
+    </script>
+
+</head>
+
+<body>
+    <!--Background-->
+    <img src="../Media/src/assets/Motiv.jpg" id="Motiv">
+
+    <form class="content" onsubmit="Redirect()" action="Success.html" method="post" id="myForm">
+
+        <!-- Username -->
+        <div><label for="Username">*Username:<br><input type="text" name="Username" id="Username" maxlength="16"
+                    required></label>
+        </div>
+        <!-- Password -->
+        <div><label for="Password">*Password:<br><input type="password" name="Password" required maxlength="20"></label>
+        </div>
+        <!-- First Name -->
+        <div><label for="Firstname">*First Name:<br></label><input type="text" name="Firstname" required
+                maxlength="20"></label></div>
+        <!-- Last Name -->
+        <div><label for="Lastname">*Last Name:<br><input type="text" name="Lastname" required maxlength="20"></label>
+        </div>
+        <!-- Email -->
+        <div><label for="Email">*E-mail:<br><input type="email" name="Email" required maxlength="40"></label></div>
+        <!-- Genders -->
+        <div>
+            <input type="radio" id="Male" name="Gender" value="Male">
+            <label for="Male">Male</label>
+            <input type="radio" id="Female" name="Gender" value="Female">
+            <label for="Female">Female</label>
+            <input type="radio" id="Other" name="Gender" value="Other">
+            <label for="Other">Other</label>
+        </div>
+        <!-- Date of birth -->
+        <span><label for="Birth">*Date of birth:<br><input type="date" required></label>
+            <!-- City of birth -->
+            City of birth:<select>
+                <option>Panevėžys</option>
+                <option>Kaunas</option>
+                <option>Klaipėda</option>
+                <option>Utena</option>
+                <option selected>Vilnius</option>
+            </select></span> <br>
+        <!-- Address -->
+        <span>Current address:<label><br><input name="Address" type="text" maxlength="40">Apartment nr.:<input
+                    name="Address1" type="text" maxlength="10"></label></span>
+        <!-- Description -->
+        <div><label for="About">*About me:</div><textarea name="About" maxlength="200" rows="5" cols="50"
+            required></textarea></label>
+        <!-- Subscribe to newsletter -->
+        <label>
+            <div>Subscribe</div><input type="checkbox">
+        </label>
+        <!-- Buttons Reset and Register -->
+        <div>
+            <button class="btn" type="reset">Reset</button>
+            <button class="btn" type="submit">Register</button>
+        </div>
+    </form>
+</body>
+
+</html>
