@@ -2,13 +2,14 @@
 font-family: 'Bebas Neue', cursive;
 font-family: 'Montserrat', sans-serif; */
 
-.landing {
+/* .landing {
     display: flex;
+    justify-content: space-between;
     align-items: center;
     text-transform: uppercase;
-    justify-content: ;
-}
-.left-side-landing {
+} */
+
+/* .landing-left {
     display: flex;
     flex-direction: column;
     text-transform: uppercase;
@@ -16,14 +17,8 @@ font-family: 'Montserrat', sans-serif; */
     color: #3d2514;
     margin: 153px 56px;
 }
-.right-side-landing {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-transform: uppercase;
-}
 
-.left-side-landing div:nth-of-type(1) {
+.landing-left div:nth-of-type(1) {
     font-family: 'Bebas Neue', cursive;
     font-size: 24px;
     border: 2px dashed #3d2514;
@@ -35,32 +30,134 @@ font-family: 'Montserrat', sans-serif; */
     align-items: center;
     margin-bottom: 17px;
 }
-.left-side-landing div:nth-of-type(2) {
+.landing-left div:nth-of-type(2) {
     font-weight: 400;
     font-size: 114px;
     margin-bottom: 8px;
     text-shadow: 4px 5px white;
 }
-.left-side-landing div:nth-of-type(3) {
+.landing-left div:nth-of-type(3) {
     font-weight: 400;
     font-size: 56px;
-    text-shadow: 4px 4px white;
+    text-shadow: 4px 4px white; 
+}
+*/
+
+/* .landing-right {
+    position: relative;
+    display: flex;
+    
+    text-transform: uppercase;
+    border: #3d2514 solid 2px ;
 }
 
-.right-side-landing .glow {
+.landing-right .glow {
     position: absolute;
-    padding-right: 1000px;
-    padding-bottom: 50px;
     z-index: 1;
 }
-.right-side-landing .fries {
-    padding-top: 75px;
-    padding-left: 35px;
+.landing-right .fries {
+    position: absolute;
     z-index: 3;
 }
-.right-side-landing .burger {
-    position: relative;
-    padding-top: 230px;
-    padding-right: 400px; /*???????????????????????????*/
+.landing-right .burger {
+    position: absolute;
     z-index: 4;
+}
+.landing-right .shadow {
+    position: absolute;
+    z-index: 3;
+}
+.landing-right .drinks {
+    position: absolute;
+    z-index: 3;
+}
+.landing-right .shadow1 {
+    position: absolute;
+    z-index: 2;
+}
+.landing-right .priceTag {
+    position: absolute;
+    z-index: 5;
+    border-radius: 50%;
+} */
+
+.landing {
+    background-image: url(../assets/Landingbg.png);
+    margin-top: -253px;
+    padding: 273px 56px 78px 0;
+    display: flex;
+    justify-content: space-between;
+    text-transform: uppercase;
+}
+
+.headings {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    margin-top: 76px;
+    margin-left: 57px;
+
+}
+.dashed, h2, h4 {
+    font-family: 'Alfa Slab One', cursive;
+    color: #3d2514;
+    margin-bottom: 24px;
+}
+.dashed {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 24px;
+    border: 2px dashed #3d2514;
+    padding: 12px 18px 10px;
+}
+
+.landing h2 {
+    font-weight: 400;
+    font-size: 114px;
+    text-shadow: 4px 4.5px white;
+}
+.landing h4 {
+    font-weight: 400;
+    font-size: 56px;
+    text-shadow: 4px 4px white; 
+}
+.priceCircle {
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    font-family: 'Bebas Neue', cursive;
+    background-color: #bf2222;
+    width: 174px;
+    height: 174px;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.price {
+    width: 152px;
+    height: 152px;
+    color: #fff;
+    border: 2px dashed #fff;
+    border-radius: 50%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+}
+
+.priceTop span:nth-of-type(1) {
+    font-size: 70px;
+}
+.priceTop span:nth-of-type(2) {
+    font-size: 32px;
+}
+.price div:nth-child(2) {
+    font-size: 32px;
+    letter-spacing: 10px;
+    margin-left: 14px;
+}
+
+.burger-container {
+    position: relative;
 }

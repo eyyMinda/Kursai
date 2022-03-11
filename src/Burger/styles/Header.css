@@ -1,20 +1,17 @@
 /* font-family: 'Alfa Slab One', cursive;
 font-family: 'Bebas Neue', cursive;
 font-family: 'Montserrat', sans-serif; */
-* {
-    font-family: 'Bebas Neue', cursive;
-}
-.TopPage {
+
+/* .TopPage {
     width: 1440px;
     height: 825px;
     background-color: #ffc045;
-}
+} */
 header {
     display: flex;
     justify-content: space-between;
-    margin: 0 56px 0 53px;
-    padding-top: 52px;
-    z-index: 2;
+    margin: 52px 56px 0 53px;
+    /* z-index: 2; */
 }
 .logo {
     width: 263px;
