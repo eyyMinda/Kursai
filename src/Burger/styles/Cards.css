@@ -1,0 +1,53 @@
+/* font-family: 'Alfa Slab One', cursive;
+font-family: 'Bebas Neue', cursive;
+font-family: 'Montserrat', sans-serif; */
+
+.Cards-container {
+    margin-top: 78px;
+    display: flex;
+    flex: 0 0 596px;
+    justify-content: space-around;
+    text-transform: uppercase;
+    font-family: 'Bebas Neue', cursive;
+    font-weight: 400;
+    color: #FFF;
+    margin-bottom: 71px;
+}
+.bigCard {
+    position: relative;
+    padding-right: 42px;
+    
+}
+.smallCards {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+}
+.tryitText {
+    position: absolute;
+    z-index: 2;
+    top: 31px;
+    left: 24px;
+    font-size: 25px;
+}
+.mostText {
+    position: absolute;
+    z-index: 2;
+    top: 57px;
+    left: 24px;
+    font-size: 42px;
+}
+.most1Text {
+    position: absolute;
+    z-index: 2;
+    top: 95px;
+    left: 24px;
+    font-size: 42px;
+}
+
+.Card1 {
+    position: relative;
+}
+.Card2 {
+    position: relative;
+}

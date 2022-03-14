@@ -1,0 +1,53 @@
+/* font-family: 'Alfa Slab One', cursive;
+font-family: 'Bebas Neue', cursive;
+font-family: 'Montserrat', sans-serif; */
+.Order {
+    font-family: 'Montserrat', sans-serif;
+    text-align: center;
+    color: #3d2514;
+}
+.orderText {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 65px;
+}
+.Order p {
+    font-size: 17px;
+    padding: 0 158px 0 158px;
+}
+.Order h4 {
+    background-color: #ffc045;
+    width: 218px;
+    height: 48px;
+    line-height: 3;
+}
+.Order h2 {
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 50px;
+}
+.options-container {
+display: flex;
+justify-content: space-between;
+align-items: center;
+}
+.options-container div:nth-of-type(2) {
+    margin-bottom: 20px;
+}
+.options-container h3 {
+    font-size: 24px;
+    font-weight: 700;
+    letter-spacing: -1px;
+    margin-top: 30px;
+}
+.options-container p {
+    margin: 24px 0 37px 0;
+}
+.options-container button {
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 17px;
+    background: #bf2222;
+    color: #fff;
+    width: 196px;
+    height: 58px;
+}
