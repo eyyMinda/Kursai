@@ -67,7 +67,7 @@ font-family: 'Montserrat', sans-serif; */
     color: #fff;
     flex: 0 0 calc(50% - 24px); /*Takes up 50% of form space - 24px of margin from both sides*/
     margin: 13px 12px;
-
+    border: 0;
 }
 
 /* 
