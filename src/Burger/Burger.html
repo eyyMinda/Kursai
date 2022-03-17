@@ -4,6 +4,8 @@
 <head>
     <title>Burger House</title>
 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link
@@ -15,52 +17,56 @@
     <link rel="stylesheet" href="styles/Landing.css">
     <link rel="stylesheet" href="styles/Cards.css">
     <link rel="stylesheet" href="styles/Order.css">
+    <link rel="stylesheet" href="styles/Discover.css">
+    <link rel="stylesheet" href="styles/Reservation.css">
+    <link rel="stylesheet" href="styles/Footer.css">
 </head>
 
 <body>
-    <!-- <div class="TopPage"> -->
-    <header>
-        <div>
-            <img src="assets/BurgerHomeLogo.svg" class=".logo">
-        </div>
-        <div class="right-side">
-            <div class="contacts-container">
-                <img src="assets/PhoneIcon.png">
-                <div>Express Delivery +1 234 567 890</div>
+    <div class="TopPage">
+        <header>
+            <div>
+                <img src="assets/BurgerHomeLogo.svg" class=".logo">
             </div>
-            <nav class="mainNav">
-                <a href="">Home</a>
-                <a href="">Menu</a>
-                <a href="">Our Story</a>
-                <a href="">Contact us</a>
-            </nav>
-        </div>
-    </header>
+            <div class="right-side">
+                <div class="contacts-container">
+                    <img src="assets/Icons/PhoneIcon.png">
+                    <div>Express Delivery +1 234 567 890</div>
+                </div>
+                <nav class="mainNav">
+                    <a href="">Home</a>
+                    <a href="">Menu</a>
+                    <a href="">Our Story</a>
+                    <a href="">Contact us</a>
+                </nav>
+            </div>
+        </header>
 
-    <section class="landing">
+        <section class="landing">
 
-        <div class="headings">
-            <div class="dashed">It is a good time for the great taste of burgers</div>
-            <h2>burger</h2>
-            <h4>week</h4>
-        </div>
+            <div class="headings">
+                <div class="dashed">It is a good time for the great taste of burgers</div>
+                <h2>burger</h2>
+                <h4>week</h4>
+            </div>
 
-        <div class="landing-right">
-            <div class="burger-container">
-                <img src="assets/Burger-image.png"></img>
+            <div class="landing-right">
+                <div class="burger-container">
+                    <img src="assets/Burger-image.png"></img>
 
-                <div class="priceCircle">
-                    <div class="price">
-                        <div class="priceTop">
-                            <span>$5</span>
-                            <span>.49</span>
+                    <div class="priceCircle">
+                        <div class="price">
+                            <div class="priceTop">
+                                <span>$5</span>
+                                <span>.49</span>
+                            </div>
+                            <div>only</div>
                         </div>
-                        <div>only</div>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 
     <section class="Cards-container">
 
@@ -76,7 +82,8 @@
                 <div class="mostText">more fun</div>
                 <div class="most1Text">more taste</div>
             </div>
-            <div class="Card2"> <img src="assets/Card2.png">
+            <div class="Card2">
+                <img src="assets/Card2.png">
                 <div class="tryitText">try it today</div>
                 <div class="mostText">fresh & chili</div>
             </div>
@@ -117,8 +124,74 @@
         </div>
     </section>
 
-    <!-- </div> -->
+    <section class="discover">
+        <article>
+            <div class="left-side">
+                <h3>DISCOVER</h3>
+                <h2>UPCOMING EVENTS</h2>
+                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore
+                    et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas
+                    accumsan lacus vel facilisis. </p>
+                <ul>
+                    <li></li>
+                    <li></li>
+                    <li></li>
+                </ul>
+            </div>
+            <div><img src="assets/Discoverimg.png"></div>
+        </article>
+    </section>
 
+    <section class="reservation">
+        <img src="assets/Formbg1.png">
+
+        <form>
+            <h1>RESERVATION</h1>
+            <h2>BOOK YOUR TABLE</h2>
+
+            <div class="inputs">
+                <input type="text" placeholder="Name">
+                <input type="email" placeholder="Email">
+                <input type="text" placeholder="Date" onfocus="this.type='date'" onblur="this.type='text'">
+                <input type="time" placeholder="Time" onfocus="this.type='time'" onblur="this.type='text'">
+                <input type="number" placeholder="People">
+                <button>Find A Table</button>
+            </div>
+        </form>
+
+        <img src="assets/Formbg2.png">
+
+    </section>
+
+    <footer class="footer">
+
+        <div class="left-side">
+
+            <img src="assets/FooterLogo.png" class=".logo">
+
+            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viver ra maecenas accumsan
+                lacus vel facilisis.</p>
+
+            <div class="allrights">© Company Name 2020. All rights reserved.</div>
+        </div>
+
+        <div class="right-side">
+
+            <ul class="contactInfo">
+                <li><img src="assets/Icons/Location.png">Main Road, Building Name, Country</li>
+                <li><img src="./assets/Icons/Email.png">info@companyname.com</li>
+            </ul>
+
+            <ul class="social">
+                <li><a href="https://www.Instagram.com"><img src="./assets/Icons/Instagram.png"></li></a>
+                <li><a href="https://www.Facebook.com"><img src="./assets/Icons/Facebook.png"></li></a>
+                <li><a href="https://www.Twitter.com"><img src="./assets/Icons/Twitter.png"></li></a>
+                <li><a href="https://www.WhatsApp.com"><img src="./assets/Icons/WhatsApp.png"></li></a>
+            </ul>
+        </div>
+
+    </footer>
 </body>
 
 </html>

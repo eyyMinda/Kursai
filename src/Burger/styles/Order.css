@@ -2,9 +2,11 @@
 font-family: 'Bebas Neue', cursive;
 font-family: 'Montserrat', sans-serif; */
 .Order {
+    max-width: 1440px;
     font-family: 'Montserrat', sans-serif;
     text-align: center;
     color: #3d2514;
+    margin: auto;
 }
 .orderText {
     display: flex;
@@ -27,9 +29,9 @@ font-family: 'Montserrat', sans-serif; */
     font-size: 50px;
 }
 .options-container {
-display: flex;
-justify-content: space-between;
-align-items: center;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 .options-container div:nth-of-type(2) {
     margin-bottom: 20px;

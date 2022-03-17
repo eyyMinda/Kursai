@@ -1,0 +1,53 @@
+/* font-family: 'Alfa Slab One', cursive;
+font-family: 'Bebas Neue', cursive;
+font-family: 'Montserrat', sans-serif; */
+
+.footer {
+    max-width: 1440px;
+    margin: auto;
+    background-image: url(../assets/FooterBg.png);
+    background-repeat: no-repeat;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    padding: 84px 126px 31px 43px;
+    position: relative;
+}
+.footer .left-side {
+    flex: 0 1 535px;
+}
+.footer p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 17px;
+    margin: 49px 0 171px;
+    line-height: 25px;
+}
+.footer .allrights {
+    font-size: 17px;
+    text-transform: uppercase;
+}
+.footer .right-side {
+    align-self: center;
+    margin-right: 120px;
+}
+.footer .contactInfo {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 21px;
+    display: flex;
+    flex-direction: column;
+}
+.footer .contactInfo img {
+    padding: 15px 30px 0 0;
+}
+.footer .social {
+    position: absolute;
+    bottom: 32px;
+    right: 150px;
+}
+.footer .social li {
+    display: inline-block;
+    padding-right: 6px;
+}
+.footer .social li:hover {
+    transform: scale(1.25);
+}

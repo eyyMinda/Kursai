@@ -1,0 +1,58 @@
+/* font-family: 'Alfa Slab One', cursive;
+font-family: 'Bebas Neue', cursive;
+font-family: 'Montserrat', sans-serif; */
+.discover {
+    max-width: 1440px;
+    margin: 64px auto;
+}
+.discover article {
+    padding: 26px;
+    display: flex;
+    justify-content: space-around;
+    box-shadow: 10px 10px 31px 0px rgba(0,0,0,0.17);
+    max-width: 1440px;
+}
+.discover .left-side {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+}
+.discover h3 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 29px;
+    letter-spacing: 2px;
+    color: #3d3d3d;
+    font-weight: 700;
+    margin-top: 36px;
+    margin-bottom: 10px;
+}
+.discover h2 {
+    font-family: 'Alfa Slab One', cursive;
+    font-size: 42px;
+    color: #3d2514;
+}
+.discover p {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 21px;
+    line-height: 1.5;
+    max-width: 519px;
+}
+.discover ul {
+    position: absolute;
+    left: 0;
+    bottom: 32px;
+}
+.discover li {
+    display: inline-block;
+    width: 18px;
+    height: 18px;
+    border-radius: 50%;
+    background: #dcdcdc;
+}
+.discover li:first-of-type {
+    background: #ffc045;
+}
+.discover li:hover {
+    border: 1px solid #3d3d3d;
+    background: #ffc045;
+}

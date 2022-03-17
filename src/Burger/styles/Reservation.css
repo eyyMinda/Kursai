@@ -1,0 +1,78 @@
+/* font-family: 'Alfa Slab One', cursive;
+font-family: 'Bebas Neue', cursive;
+font-family: 'Montserrat', sans-serif; */
+
+.reservation {
+    max-width: 1440px;
+    position: relative;
+    padding-top: 36px;
+    padding-bottom: 150px;
+    overflow: hidden;
+    margin: auto;
+}
+.reservation img {
+    position: absolute;
+    
+}
+.reservation img:first-of-type {
+    top: -60px;
+    left: -80px;
+}
+.reservation img:last-of-type {
+    right: -280px;
+    bottom: -150px;
+}
+.reservation form {
+    margin: auto;
+    padding: 24px;
+    width: 800px;
+    text-align: center;
+}
+.reservation h1 {
+    font-family: 'Bebas Neue', cursive;
+    font-size: 29px;
+    letter-spacing: 2px;
+
+}
+.reservation h2 {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 50px;
+    letter-spacing: 3px;
+    color: #3d2514;
+    margin-bottom: 62px;
+}
+.reservation .inputs {
+    display: flex;
+    flex-wrap: wrap;
+}
+.reservation input {
+    font-family: 'Bebas Neue', cursive;
+    flex: 0 0 calc(50% - 24px);
+    margin: 13px 12px;
+    border-radius: 5px;
+    border: 1px solid #bebebe;
+    height: 65px;
+    padding: 0 24px;
+    text-transform: uppercase;
+    font-size: 21px;
+    color: #3d3d3d;
+    outline: none;
+}
+.reservation button {
+    border-radius: 5px;
+    background-color: #bf2222;
+    font-family: 'Bebas Neue', cursive;
+    font-size: 21px;
+    text-transform: uppercase;
+    color: #fff;
+    flex: 0 0 calc(50% - 24px); /*Takes up 50% of form space - 24px of margin from both sides*/
+    margin: 13px 12px;
+
+}
+
+/* 
+    Text in one line; if too long display ...; everything else after gets hidden;
+
+    text-overflow: elipsis;
+    white-space: nowrap;
+    overflow: hidden; */

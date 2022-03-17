@@ -2,31 +2,28 @@
 font-family: 'Bebas Neue', cursive;
 font-family: 'Montserrat', sans-serif; */
 
-/* .TopPage {
-    width: 1440px;
-    height: 825px;
-    background-color: #ffc045;
-} */
+.TopPage {
+    background-image: url(../assets/Landingbg.png);
+}
+
 header {
+    max-width: 1440px;
     display: flex;
     justify-content: space-between;
-    margin: 52px 56px 0 53px;
+    padding: 52px 56px 0 53px;
+    margin: auto;
     /* z-index: 2; */
 }
 .logo {
     width: 263px;
     height: 58px;
 }
-
-header .right-side .container {
-    background-color: #3d2514;
-}
 .contacts-container {
     display: flex;
     align-items: center;
-    justify-content: end;
+    justify-content: right;
     margin-bottom: 26px;
-
+    padding-right: 122px;
 }
 .contacts-container img {
     margin-right: 8px;
@@ -37,12 +34,10 @@ header .right-side .container {
     color: #3d2514;
     font-weight: 700;
     font-family: "Montserrat";
-    text-align: right;
     letter-spacing: 1px;
 }
 .mainNav a {
     margin-right: 50px;
-    text-align: right;
     font-family: 'Bebas Neue', cursive;
     font-weight: 700;
     font-size: 21px;
@@ -50,5 +45,5 @@ header .right-side .container {
     color: #3d2514;
 }
 .mainNav a:nth-of-type(4) {
-    margin-right: 0;
+    padding-right: 72px;
 }
