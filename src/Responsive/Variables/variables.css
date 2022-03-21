@@ -1,0 +1,27 @@
+:root {
+    --background: yellow;
+}
+body {
+    background: var(--background);
+}
+
+/*BEM convention */
+.register__form {
+    display: flex;
+    flex-direction: column;
+}
+.register__form-input {
+    border: 0;
+}
+
+.register__form-input--firstname {
+    background-color: red;
+    color: #d2f212;
+}
+.register__form-input--lastname {
+    background-color: blue;
+    color: #fff;
+}
+.register__form-button {
+    background: green;
+}
