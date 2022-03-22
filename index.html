@@ -9,65 +9,84 @@
 
 <body>
     <header>
-        <button class="header__menuBtn">
-            <svg viewBox="0 0 100 80" width="40" height="40">
-                <rect width="100" height="20"></rect>
-                <rect y="30" width="100" height="20"></rect>
-                <rect y="60" width="100" height="20"></rect>
-            </svg>
-
-            <nav class="header_menuBtn__nav">
-                <ul class="header_menuBtn_nav__links">
-                    <!--2022/03/08-09-->
-                    <li><a href="./src/FlexHomework.jpg" class="header_menuBtn__link">Frogs-game Flex</a></li>
-                    <!--2022/03/09-10-->
-                    <li><a href="src/Pseudo/nd.html">CSS basics</a></li>
-                    <!--2022/03/10-18-->
-                    <li><a href="src/Burger/Burger.html">Burger Design </a></li>
-                </ul>
-            </nav>
-        </button>
+        <menu>
+            <button class="header__menuBtn">
+                <!-- <svg viewBox="0 0 100 80" width="40" height="40">
+                    <rect width="100" height="20"></rect>
+                    <rect y="30" width="100" height="20"></rect>
+                    <rect y="60" width="100" height="20"></rect>
+                </svg> -->
+                <div>
+                    <img src="./src/assets/Homework.png" alt="Menu-Icon" class="image">
+                    <p class="hide">Click to expand homework!</p>
+                </div>
+                <nav class="header_menuBtn__nav">
+                    <ul class="header_menuBtn_nav__links">
+                        <!--2022/03/08-09-->
+                        <li><a href="./src/FlexHomework.jpg" class="header_menuBtn__link">Frogs-game Flex</a></li>
+                        <!--2022/03/09-10-->
+                        <li><a href="src/Pseudo/nd.html" class="header_menuBtn__link">CSS basics</a></li>
+                        <!--2022/03/10-18-->
+                        <li><a href="src/Burger/Burger.html" class="header_menuBtn__link">Burger Design </a></li>
+                        <!--2022/03/22-23-->
+                        <li><a href="./src/GridHomework.png" class="header_menuBtn__link">Frogs-game Grid</a></li>
+                    </ul>
+                </nav>
+            </button>
+        </menu>
     </header>
 
+    <h1>Quick View</h1>
 
+    <section class="preview">
+        <div>
+            <button onclick="displayIframe()">CSS Basics</button>
+            <div id="iframeDisplay"></div>
 
+            <script>
+                function displayIframe() {
+                    document.getElementById("iframeDisplay").innerHTML = "<iframe src=\"./src/Pseudo/nd.html\" height=\"200\" width=\"300\" ></iframe>";
 
+                }
+            </script>
+        </div>
 
+        <div>
+            <button onclick="displayIframeBurg()">Burger Design</button>
+            <div id="iframeDisplayBurg"></div>
 
-    <!-- 
-    <section class="Preview">
+            <script>
+                function displayIframeBurg() {
+                    document.getElementById("iframeDisplayBurg").innerHTML = "<iframe src=\"./src/Burger/Burger.html\" height=\"200\" width=\"300\" ></iframe>";
 
-        <button onclick="displayIframe()">CSS Basics</button>
-        <div id="iframeDisplay"></div>
+                }
+            </script>
+        </div>
 
-        <script>
-            function displayIframe() {
-                document.getElementById("iframeDisplay").innerHTML = "<iframe src=\"./src/Pseudo/nd.html\" height=\"200\" width=\"300\" ></iframe>";
+        <div>
+            <button onclick="displayIframeFlex()">Frog-game Flex</button>
+            <div id="iframeDisplayFlex"></div>
 
-            }
-        </script>
+            <script>
+                function displayIframeFlex() {
+                    document.getElementById("iframeDisplayFlex").innerHTML = "<iframe src=\"./src/FlexHomework.jpg\" height=\"500\" width=\"300\" ></iframe>";
 
-        <button onclick="displayIframeBurg()">Burger Design</button>
-        <div id="iframeDisplayBurg"></div>
+                }
+            </script>
+        </div>
 
-        <script>
-            function displayIframeBurg() {
-                document.getElementById("iframeDisplayBurg").innerHTML = "<iframe src=\"./src/Burger/Burger.html\" height=\"200\" width=\"300\" ></iframe>";
+        <div>
+            <button onclick="displayIframeGrid()">Frog-game Grid</button>
+            <div id="iframeDisplayGrid"></div>
 
-            }
-        </script>
+            <script>
+                function displayIframeGrid() {
+                    document.getElementById("iframeDisplayGrid").innerHTML = "<iframe src=\"./src/GridHomework.png\" height=\"500\" width=\"300\" ></iframe>";
 
-        <button onclick="displayIframeFlex()">Frog-game Flex</button>
-        <div id="iframeDisplayFlex"></div>
-
-        <script>
-            function displayIframeFlex() {
-                document.getElementById("iframeDisplayFlex").innerHTML = "<iframe src=\"./src/FlexHomework.jpg\" height=\"500\" width=\"300\" ></iframe>";
-
-            }
-        </script>
-    </section> -->
-
+                }
+            </script>
+        </div>
+    </section>
 
 </body>
 
