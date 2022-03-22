@@ -1,1 +1,28 @@
-/* tingiu rasyt */
+header {
+    border-bottom: 1px solid slateblue;
+}
+body {
+    position: relative;
+}
+.header__menuBtn {
+    display: block;
+}
+.header_menuBtn__nav {
+    visibility: visible;
+    flex-direction: column;
+}
+.header_menuBtn_nav__list {
+    position: absolute;
+    width: 100%;
+}
+.header_menuBtn__link {
+    
+}
+@media (min-width: 375px) {
+    .header__menuBtn {
+        visibility: hidden;
+    }
+    .header_menuBtn__nav {
+        flex-direction: row;
+    }
+}

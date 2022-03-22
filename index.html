@@ -3,19 +3,38 @@
 
 <head>
     <title>Homework Page</title>
+    <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="index.css">
 </head>
 
 <body>
     <header>
-        <!--2022/03/08-09-->
-        <a href="./src/FlexHomework.jpg">Frogs-game Flex</a>
-        <!--2022/03/09-10-->
-        <a href="src/Pseudo/nd.html">CSS basics</a>
-        <!--2022/03/10-18-->
-        <a href="src/Burger/Burger.html">Burger Design </a>
+        <button class="header__menuBtn">
+            <svg viewBox="0 0 100 80" width="40" height="40">
+                <rect width="100" height="20"></rect>
+                <rect y="30" width="100" height="20"></rect>
+                <rect y="60" width="100" height="20"></rect>
+            </svg>
+
+            <nav class="header_menuBtn__nav">
+                <ul class="header_menuBtn_nav__links">
+                    <!--2022/03/08-09-->
+                    <li><a href="./src/FlexHomework.jpg" class="header_menuBtn__link">Frogs-game Flex</a></li>
+                    <!--2022/03/09-10-->
+                    <li><a href="src/Pseudo/nd.html">CSS basics</a></li>
+                    <!--2022/03/10-18-->
+                    <li><a href="src/Burger/Burger.html">Burger Design </a></li>
+                </ul>
+            </nav>
+        </button>
     </header>
 
+
+
+
+
+
+    <!-- 
     <section class="Preview">
 
         <button onclick="displayIframe()">CSS Basics</button>
@@ -27,7 +46,7 @@
 
             }
         </script>
-        <!---->
+
         <button onclick="displayIframeBurg()">Burger Design</button>
         <div id="iframeDisplayBurg"></div>
 
@@ -37,7 +56,7 @@
 
             }
         </script>
-        <!---->
+
         <button onclick="displayIframeFlex()">Frog-game Flex</button>
         <div id="iframeDisplayFlex"></div>
 
@@ -47,7 +66,7 @@
 
             }
         </script>
-    </section>
+    </section> -->
 
 
 </body>
