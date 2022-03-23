@@ -1,11 +1,65 @@
-.grid-item {
-    background-color: aqua;
-    width: 50px;
-    height: 50px;
-    border: 2px solid white;
+html {
+    background-color: #1245f9;
+    background-repeat: no-repeat;
+    background-image: url(https://s3-us-west-2.amazonaws.com/s.cdpn.io/881020/johnoliver2.jpg);
+    background-size: 100vw;
+    background-position: center 5vw;
 }
-.grid-container {
-    background-color: blueviolet;
+
+body {
+    font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    font-size: 24px;
+}
+
+[class ^="box-"] {
+    border: 2px solid #000;
+    place-items: center;
     display: grid;
-    grid-template-columns: 200px 100px;
+}
+
+.grid-container {
+    height: 100vh;
+    display: grid;
+}
+
+@media (min-width: 1024px) {
+    .grid-container {
+        height: 100vh;
+        display: grid;
+        grid-template-areas:
+            "header - -"
+            "main box4 box6"
+            "main box5 box6"
+            "footer footer footer";
+        gap: 10px;
+    }
+
+    .box-1 {
+        grid-area: header;
+        /*grid-area: 1/2/1/5*/
+    }
+
+    .box-2 {
+        grid-area: main;
+    }
+
+    .box-3 {
+        grid-area: footer;
+    }
+
+    .box-4 {
+        grid-area: box4;
+    }
+
+    .box-5 {
+        grid-area: box5;
+    }
+
+    .box-6 {
+        grid-area: box6;
+    }
+
+    .box-1, .box-3 {
+        grid-column: 1/4;
+    }
 }
