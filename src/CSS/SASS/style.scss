@@ -1,0 +1,44 @@
+@import 'theme';
+@import 'mixin';
+/* or @import ''; */
+
+p {
+    color: rosybrown;
+    font-size: $font-Big;
+}
+
+.hb-header {
+    position: relative;
+    background: black;
+
+    .header-wrapper {
+        margin: 0;
+        max-width: 1024px;
+        background-color: blue;
+    }
+}
+
+.triplets {
+    @include cube;
+
+    color: red;
+    font-size: $font-Big;
+    background-color: blueviolet;
+
+    div {
+        @include cube(150px);
+        @include flex();
+        background: #324;
+
+        div {
+            @include cube(100px);
+            background-color: aqua;
+        }
+    }
+}
+
+.flex-container-example {
+    @include flex(center, flex-end);
+    @include cube();
+    border: 2px solid orange;
+}

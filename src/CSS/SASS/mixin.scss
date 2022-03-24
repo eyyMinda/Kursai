@@ -1,0 +1,11 @@
+@mixin cube($dimensions: 200px) {
+    width: $dimensions;
+    height: $dimensions;
+    background-color: #324
+}
+
+@mixin flex($horizontal: center, $vertical: center) {
+    display: flex;
+    justify-content: $horizontal;
+    align-items: $vertical;
+}
