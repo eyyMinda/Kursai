@@ -162,7 +162,7 @@
   .landing .landing__slideContainer .landing__slideContainer-info img {
     margin-right: 28px;
   }
-  .landing .landing__slideContainer .landing__scrollDown {
+  .landing .landing__scrollDown {
     -webkit-writing-mode: vertical-lr;
         -ms-writing-mode: tb-lr;
             writing-mode: vertical-lr;
@@ -171,8 +171,9 @@
     position: absolute;
     bottom: 0;
     color: #919eb1;
+    text-decoration: none;
   }
-  .landing .landing__slideContainer .landing__scrollDown img {
+  .landing .landing__scrollDown img {
     -webkit-transform: rotate(180deg);
             transform: rotate(180deg);
     margin-bottom: 10px;
