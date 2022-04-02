@@ -1,0 +1,159 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Work+Sans&display=swap");
+@import 'variables';
+@import 'utilities';
+@import 'keyframes';
+
+
+.mainbg {
+    background: linear-gradient(to right, $primary, $secondary, $primary),
+        url("./assets/bg.jpg") no-repeat center center / cover;
+    background-attachment: fixed;
+    height: 100vh;
+    width: 100vw;
+    z-index: -1;
+    overflow-x: hidden;
+    position: absolute;
+    filter: blur(8px);
+    transform: scale(1.1)
+}
+
+header {
+    max-width: 1180px;
+    margin: auto;
+    @include font(600, 13px);
+    @include flex(space-between, center);
+    background-color: rgba(255, 255, 255, 0.404);
+    border-radius: 100px;
+    position: relative;
+
+    .header__logo {
+        margin: 30px 20px;
+        padding: 10px 10px;
+
+        a {
+            @include font(700, 25px);
+        }
+
+        @media (min-width:$desktop) {
+            order: 1;
+        }
+    }
+
+    #header__menuBtn {
+        @include flex();
+        flex-direction: column;
+        margin-left: 20px;
+        padding: 10px;
+        cursor: pointer;
+
+        .menuBtn_bar1,
+        .menuBtn_bar2,
+        .menuBtn_bar3 {
+            background-color: $Dark;
+            border-radius: 5px;
+            width: 35px;
+            height: 5px;
+            margin: 2px;
+
+            @media (min-width: $desktop) {
+                display: none;
+            }
+        }
+
+        #header__menu {
+            @include flex;
+            flex-direction: column;
+            background-color: rgba(184, 184, 184, 0.6);
+            position: absolute;
+            top: 110px;
+            left: -100%;
+            width: 100%;
+            height: 50vh;
+            border-radius: 300px;
+            z-index: 5;
+
+            li {
+                margin: 10px;
+
+                a {
+                    padding: 10px;
+                    color: $Dark;
+                    font-size: 16px;
+
+                    &:hover {
+                        color: #fff
+                    }
+                }
+            }
+
+            @media (min-width: $desktop) {
+                top: 35px;
+                left: auto;
+                display: flex;
+                height: auto;
+                width: auto;
+                background: 0;
+                flex-direction: row;
+                animation: none;
+            }
+        }
+
+        @media (min-width:$desktop) {
+            order: 2;
+        }
+    }
+
+    #header__menuJoinUs {
+        @include flex;
+        @include font(600, 16px);
+        order: 3;
+
+        a {
+            color: $Dark;
+
+            &:hover {
+                color: #fff;
+            }
+        }
+
+        .inbox {
+            @include inbox;
+            margin-right: 20px;
+        }
+
+        @media (min-width: $tablet) {
+            li {
+                margin-left: 5px;
+            }
+        }
+
+        @media (min-width:$desktop) {
+            margin: 40px 30px;
+            order: 3;
+        }
+    }
+}
+
+.open {
+
+    .menuBtn_bar1 {
+        transform: translateY(9px) rotate(-45deg);
+        transition: 0.5s ease;
+    }
+
+    .menuBtn_bar2 {
+        opacity: 0;
+        transform: scale(0);
+        transition: 0.5s ease;
+    }
+
+    .menuBtn_bar3 {
+        transform: translateY(-9px) rotate(45deg);
+        transition: 0.5s ease;
+    }
+
+    #header__menu {
+        animation: menuCollapse 0.25s ease-in-out forwards;
+        text-shadow: 0 0 1px rgb(78, 78, 78);
+    }
+}
