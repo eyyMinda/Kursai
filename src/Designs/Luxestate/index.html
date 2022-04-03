@@ -17,7 +17,9 @@
 </head>
 
 <body>
+
     <div class="mainbg"></div>
+
     <header>
         <div id="header__menuBtn" onclick="toggleMobileMenu(this)">
             <div class="menuBtn_bar1"></div>
@@ -37,12 +39,15 @@
         </ul>
         <h1 class="header__logo"><a href="#">luxestate</a></h1>
     </header>
+
     <section class="search">
         <div class="search_container">
+
             <img class="search_icon" src="./assets/searchIcon.png" alt="searchIcon">
             <input class="search_input" id="search" onkeyup="search_location()" name="search"
                 placeholder="Search locations" autocomplete="off">
             <button class="search_button" type="button">Search</button>
+
         </div>
         <div id="locationCards" class="search_locationCards">
 
@@ -85,7 +90,11 @@
             
         </div>
     </section> -->
-
+    <script>
+        document.onmousemove = e => {
+            document.querySelector("body").style.transform = `translate(-${e.clientX * 0.01}px, -${e.clientY * 0.01}px)`;
+        }
+    </script>
 </body>
 
 </html>
