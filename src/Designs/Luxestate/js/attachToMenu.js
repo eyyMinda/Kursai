@@ -1,10 +1,10 @@
 var limitFunc = function () {
     if (window.innerWidth < 768) {
-        $('#header__menuJoinUs').appendTo('#header__menu');
+        $('#header__menuSign').appendTo('#header__menu');
         console.log('smallScreen');
     }
     else if (window.innerWidth > 768) {
-        $('#header__menuJoinUs').appendTo('header');
+        $('#header__menuSign').appendTo('header');
         console.log('bigScreen');
     }
 };

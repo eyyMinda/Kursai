@@ -3,6 +3,9 @@
 @import 'utilities';
 @import 'keyframes';
 
+body {
+    overflow: hidden;
+}
 
 .mainbg {
     background: linear-gradient(to right, $primary, $secondary, $primary),
@@ -23,7 +26,7 @@ header {
     @include font(600, 13px);
     @include flex(space-between, center);
     background-color: rgba(255, 255, 255, 0.404);
-    border-radius: 100px;
+    border-radius: 200px 5px;
     position: relative;
 
     .header__logo {
@@ -32,6 +35,8 @@ header {
 
         a {
             @include font(700, 25px);
+
+
         }
 
         @media (min-width:$desktop) {
@@ -42,8 +47,8 @@ header {
     #header__menuBtn {
         @include flex();
         flex-direction: column;
-        margin-left: 20px;
-        padding: 10px;
+        margin-left: 19px;
+        padding: 11px;
         cursor: pointer;
 
         .menuBtn_bar1,
@@ -63,31 +68,32 @@ header {
         #header__menu {
             @include flex;
             flex-direction: column;
-            background-color: rgba(184, 184, 184, 0.6);
+            background-color: $UIColor;
             position: absolute;
-            top: 110px;
+            top: 105px;
             left: -100%;
             width: 100%;
             height: 50vh;
-            border-radius: 300px;
+            border-radius: 5px 200px;
             z-index: 5;
 
             li {
                 margin: 10px;
+                transition: all 0.2s ease-in-out;
+
+                &:hover {
+                    transform: scale(1.2);
+                }
 
                 a {
                     padding: 10px;
                     color: $Dark;
                     font-size: 16px;
-
-                    &:hover {
-                        color: #fff
-                    }
                 }
             }
 
             @media (min-width: $desktop) {
-                top: 35px;
+                top: 45px;
                 left: auto;
                 display: flex;
                 height: auto;
@@ -103,27 +109,34 @@ header {
         }
     }
 
-    #header__menuJoinUs {
+    #header__menuSign {
         @include flex;
         @include font(600, 16px);
         order: 3;
+        margin-top: 20px;
 
-        a {
-            color: $Dark;
+        li {
+            transition: all 0.2s ease-in-out;
 
             &:hover {
-                color: #fff;
+                transform: scale(1.1);
+            }
+
+            a {
+                color: $Dark;
+            }
+
+            &:nth-of-type(2) {
+                @include inbox;
+                margin-right: 20px;
             }
         }
 
-        .inbox {
-            @include inbox;
-            margin-right: 20px;
-        }
-
         @media (min-width: $tablet) {
+            margin-top: 0;
+
             li {
-                margin-left: 5px;
+                margin-left: 10px;
             }
         }
 
@@ -154,6 +167,115 @@ header {
 
     #header__menu {
         animation: menuCollapse 0.25s ease-in-out forwards;
-        text-shadow: 0 0 1px rgb(78, 78, 78);
+    }
+}
+
+.search {
+    max-width: 1180px;
+    margin: auto;
+    @include flex(center, flex-start);
+    flex-direction: column;
+
+    @media (max-width: $stickSearch) {
+        display: block;
+
+        .search_container {
+            .search_input {
+                width: 100%;
+            }
+
+            .search_button {
+                width: 50%;
+            }
+        }
+    }
+
+    .search_container {
+        display: flex;
+        position: relative;
+        margin-top: 175px;
+
+
+        .search_icon {
+            position: absolute;
+            top: 1.9em;
+            left: 1.5em;
+            width: 1.1em;
+            height: 1.1em;
+        }
+
+        .search_input {
+            @include font(400, 15px);
+            border: none;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            padding: 30px 0 32px 50px;
+            width: 365px;
+            outline: 0;
+            clear: both;
+
+            &::placeholder {
+                padding: 30px 160px 32px 0;
+                color: $Fade;
+            }
+
+        }
+
+        .search_button {
+            @include inbox;
+            @include font(600, 15px);
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            padding: 15px 33px;
+            cursor: pointer;
+            transition: all 0.1s ease-in-out;
+
+            &:hover {
+                font-size: 16px;
+            }
+        }
+    }
+
+    .search_locationCards {
+        max-width: 800px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: .5rem;
+        padding: 10px;
+        background-color: #1f373d49;
+        border: 2px solid $Dark;
+
+        .search_locationCard {
+            display: block;
+            @include font(600, 16px);
+            cursor: pointer;
+            border: 1px solid black;
+            background-color: $UIColor;
+            padding: 1rem;
+            transition: all 0.2s ease-in-out;
+
+            &:hover {
+                transform: scale(1.05);
+            }
+
+            .name {
+                white-space: nowrap;
+            }
+
+            .location {
+                margin: .25rem auto;
+                font-size: 13px;
+                color: $Fade;
+            }
+
+            img {
+                width: 100%;
+            }
+        }
+
+        p {
+            @include font(600, 13px);
+            color: $UIColor;
+        }
     }
 }

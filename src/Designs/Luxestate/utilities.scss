@@ -13,7 +13,8 @@
 }
 
 @mixin inbox {
-    border-radius: 5px;
+    border: none;
+    border-radius: 10px;
     background-color: $Yellow;
     text-align: center;
     padding: 15px 15px;

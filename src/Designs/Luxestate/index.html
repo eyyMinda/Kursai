@@ -7,6 +7,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Lux Estate</title>
 
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" type="text/javascript" defer></script>
+    <script src="./js/menuCollapse.js" type="text/javascript" defer></script>
+    <script src="./js/attachToMenu.js" type="text/javascript" defer></script>
+    <script src="./js/searchBar.js" type="text/javascript" defer></script>
+
     <link rel="stylesheet" href="reset.css">
     <link rel="stylesheet" href="main.css">
 </head>
@@ -26,18 +31,61 @@
                 <li><a href="#contacts">Contact Us</a></li>
             </ul>
         </div>
-        <ul id="header__menuJoinUs">
+        <ul id="header__menuSign">
             <li><a href="#">Join Us</li></a>
             <li id="signup"><a href="#singup" class="inbox">Getting Started</a></li>
         </ul>
-
         <h1 class="header__logo"><a href="#">luxestate</a></h1>
-
     </header>
+    <section class="search">
+        <div class="search_container">
+            <img class="search_icon" src="./assets/searchIcon.png" alt="searchIcon">
+            <input class="search_input" id="search" onkeyup="search_location()" name="search"
+                placeholder="Search locations" autocomplete="off">
+            <button class="search_button" type="button">Search</button>
+        </div>
+        <div id="locationCards" class="search_locationCards">
 
-    <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js" type="text/javascript"></script>
-    <script src="./js/menuCollapse.js" type="text/javascript"></script>
-    <script src="./js/attachToMenu.js" type="text/javascript"></script>
+            <div class="search_locationCard">
+                <div class="name">The Fairmont</div>
+                <div class="location">Upper East Side</div>
+                <img src="./assets/aparts/The Fairmont1.jpg" alt="ApartmentImage.jpg">
+            </div>
+            <div class="search_locationCard">
+                <div class="name">The Encore</div>
+                <div class="location">Upper West Side</div>
+                <img src="./assets/aparts/The Encore.jpg" alt="ApartmentImage.jpg">
+            </div>
+            <div class="search_locationCard">
+                <div class="name">Paramount Tower</div>
+                <div class="location">Midtown East</div>
+                <img src="./assets/aparts/Paramount Tower1.jpg" alt="ApartmentImage.jpg">
+            </div>
+            <div class="search_locationCard">
+                <div class="name">Paramount Tower</div>
+                <div class="location">Midtown East</div>
+                <img src="./assets/aparts/Paramount Tower2.jpg" alt="ApartmentImage.jpg">
+            </div>
+            <div class="search_locationCard">
+                <div class="name">Paramount Tower</div>
+                <div class="location">Midtown East</div>
+                <img src="./assets/aparts/Paramount Tower3.jpg" alt="ApartmentImage.jpg">
+            </div>
+            <div class="search_locationCard">
+                <div class="name">The Fairmont</div>
+                <div class="location">Upper East Side</div>
+                <img src="assets/aparts/The Fairmont2.jpg" alt="ApartmentImage.jpg">
+            </div>
+            <p></p>
+        </div>
+    </section>
+
+    <!-- <section class="landing">
+        <div class="landing__container">
+            
+        </div>
+    </section> -->
+
 </body>
 
 </html>
