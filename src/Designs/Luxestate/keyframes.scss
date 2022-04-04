@@ -1,5 +1,49 @@
+// Keyframes and Animations
+
 @keyframes menuCollapse {
     100% {
         left: 0;
+    }
+}
+
+#header__menuBtn:not(.open) {
+    .menuBtn_bar1 {
+        top: 41px;
+        transform: rotate(0deg);
+        transition: transform 0.35s, top 0.45s 0.35s;
+    }
+
+    .menuBtn_bar2 {
+        transform: scale(100%);
+        transition: transform 0.35s 0.70s;
+    }
+
+    .menuBtn_bar3 {
+        top: 59px;
+        transform: rotate(0deg);
+        transition: transform 0.35s, top 0.45s 0.35s;
+    }
+}
+
+#header__menuBtn.open {
+    .menuBtn_bar1 {
+        transform: rotate(45deg);
+        transition: top 0.45s, transform 0.35s 0.5s;
+        top: 50px;
+    }
+
+    .menuBtn_bar2 {
+        transform: scale(0%);
+        transition: transform 0.35s;
+    }
+
+    .menuBtn_bar3 {
+        transform: rotate(135deg);
+        transition: top 0.45s, transform 0.35s 0.5s;
+        top: 50px;
+    }
+
+    #header__menu {
+        animation: menuCollapse 0.25s ease-in-out forwards;
     }
 }
