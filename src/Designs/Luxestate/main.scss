@@ -4,20 +4,9 @@
 @import 'keyframes';
 
 body {
-    overflow-x: hidden;
-}
-
-// background not fixed???
-.mainbg {
     background: linear-gradient(to right, $primary, $secondary, $primary),
         url("./assets/bg.jpg") no-repeat center center / cover;
     background-attachment: fixed;
-    position: fixed;
-    height: 100vh;
-    width: 100vw;
-    z-index: -1;
-    filter: blur(8px);
-    transform: scale(1.1)
 }
 
 header {
@@ -28,6 +17,7 @@ header {
     background-color: rgba(255, 255, 255, 0.404);
     border-radius: 200px 5px;
     position: relative;
+    backdrop-filter: blur(8px);
 
     .header__logo {
         margin: 30px 20px;
@@ -71,13 +61,13 @@ header {
             @include flex;
             flex-direction: column;
             background-color: $UIColor;
-            position: absolute;
+            position: fixed; //z-index no work, need relative
             top: 105px;
             left: -100%;
             width: 100%;
             height: 50vh;
             border-radius: 5px 200px;
-            z-index: 5;
+            z-index: 999;
 
             li {
                 margin: 10px;
@@ -113,7 +103,6 @@ header {
 
     #header__menuSign {
         @include flex;
-        @include font(600, 16px);
         order: 3;
         margin-top: 20px;
 
@@ -125,6 +114,7 @@ header {
             }
 
             a {
+                @include font(600, 16px);
                 color: $Dark;
             }
 
@@ -149,146 +139,430 @@ header {
     }
 }
 
+.search,
+.search2 {
+    max-width: 800px;
+    margin: auto;
+    // position: absolute;
+    @include flex(center, flex-start);
+    flex-direction: column;
+    z-index: 0; //z-index blocking burger menu, need -1
+    position: relative;
+
+    @media (max-width: $stickSearch) {
+        display: block;
+
+        .search_container {
+            .search_input {
+                width: 100%;
+            }
+
+            .search_button {
+                width: 50%;
+            }
+        }
+    }
+
+    @media (min-width: $stickSearch) {
+        margin-left: 10%;
+    }
+
+    .search_container {
+        display: flex;
+        position: relative;
+        margin-top: 50px;
+
+
+        .search_icon {
+            position: absolute;
+            top: 1.9em;
+            left: 1.5em;
+            width: 1.1em;
+            height: 1.1em;
+        }
+
+        .search_input {
+            @include font(400, 15px);
+            border: none;
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            padding: 30px 0 32px 50px;
+            width: 365px;
+            outline: 0;
+            clear: both;
+
+            &::placeholder {
+                padding: 30px 160px 32px 0;
+                color: $Fade;
+            }
+
+        }
+
+        .search_button {
+            @include inbox;
+            @include font(600, 15px);
+            border-top-left-radius: 0;
+            border-bottom-left-radius: 0;
+            padding: 15px 33px;
+            cursor: pointer;
+            transition: all 0.1s ease-in-out;
+
+            &:hover {
+                font-size: 16px;
+            }
+        }
+    }
+
+    .search_locationCards,
+    .search_locationCards2 {
+        max-width: 800px;
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+        gap: .5rem;
+        padding: 10px;
+        background-color: #1f373d49;
+        border: 2px solid $Dark;
+        position: absolute;
+        top: 130px;
+        // display: none;
+
+        .search_locationCard,
+        .search_locationCard2 {
+            display: block;
+            @include font(600, 16px);
+            cursor: pointer;
+            border: 1px solid black;
+            background-color: $UIColor;
+            padding: 1rem;
+            transition: all 0.2s ease-in-out;
+
+            &:hover {
+                transform: scale(1.05);
+            }
+
+            .name {
+                white-space: nowrap;
+            }
+
+            .location {
+                margin: .25rem auto;
+                font-size: 13px;
+                color: $Fade;
+            }
+
+            img {
+                width: 100%;
+            }
+        }
+
+        p {
+            @include font(600, 13px);
+            color: $UIColor;
+        }
+    }
+}
+
+a {
+    @include font(600, 12px);
+}
 
 .landing {
     max-width: 1180px;
     margin: auto;
+    position: relative;
 
     .landing__container {
-        float: right;
-
-        .search {
-            max-width: 1180px;
-            margin: auto;
-            @include flex(center, flex-start);
-            flex-direction: column;
-
-            @media (max-width: $stickSearch) {
-                display: block;
-
-                .search_container {
-                    .search_input {
-                        width: 100%;
-                    }
-
-                    .search_button {
-                        width: 50%;
-                    }
-                }
-            }
-
-            .search_container {
-                display: flex;
-                position: relative;
-                margin-top: 175px;
-
-
-                .search_icon {
-                    position: absolute;
-                    top: 1.9em;
-                    left: 1.5em;
-                    width: 1.1em;
-                    height: 1.1em;
-                }
-
-                .search_input {
-                    @include font(400, 15px);
-                    border: none;
-                    border-top-left-radius: 10px;
-                    border-bottom-left-radius: 10px;
-                    padding: 30px 0 32px 50px;
-                    width: 365px;
-                    outline: 0;
-                    clear: both;
-
-                    &::placeholder {
-                        padding: 30px 160px 32px 0;
-                        color: $Fade;
-                    }
-
-                }
-
-                .search_button {
-                    @include inbox;
-                    @include font(600, 15px);
-                    border-top-left-radius: 0;
-                    border-bottom-left-radius: 0;
-                    padding: 15px 33px;
-                    cursor: pointer;
-                    transition: all 0.1s ease-in-out;
-
-                    &:hover {
-                        font-size: 16px;
-                    }
-                }
-            }
-
-            .search_locationCards {
-                max-width: 800px;
-                display: grid;
-                grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-                gap: .5rem;
-                padding: 10px;
-                background-color: #1f373d49;
-                border: 2px solid $Dark;
-
-                .search_locationCard {
-                    display: block;
-                    @include font(600, 16px);
-                    cursor: pointer;
-                    border: 1px solid black;
-                    background-color: $UIColor;
-                    padding: 1rem;
-                    transition: all 0.2s ease-in-out;
-
-                    &:hover {
-                        transform: scale(1.05);
-                    }
-
-                    .name {
-                        white-space: nowrap;
-                    }
-
-                    .location {
-                        margin: .25rem auto;
-                        font-size: 13px;
-                        color: $Fade;
-                    }
-
-                    img {
-                        width: 100%;
-                    }
-                }
-
-                p {
-                    @include font(600, 13px);
-                    color: $UIColor;
-                }
-            }
-        }
-
-        a {
-            @include font(600, 12px);
-        }
-
-        .landing__sheet {
-            position: relative;
-            background: linear-gradient(to right, $primary, $secondary, $primary), url('./assets/menubg.jpg') no-repeat center center / cover;
-            ;
-            background-attachment: fixed;
-            max-width: 100%;
-            min-height: 600px;
-        }
+        position: relative;
+        min-height: 630px;
+        overflow: hidden;
+        white-space: wrap;
+        margin-bottom: 144px;
 
         .landing__heading {
             @include font(700, 45px);
+            letter-spacing: -2px;
+            line-height: 70px;
+            padding-top: 115px;
+            text-shadow: 1px 0px 1px black;
+            white-space: pre-wrap;
+            position: relative;
+            max-width: 600px;
+            margin-left: 10%;
+            z-index: -1;
+            animation: slideleft 1s ease-in forwards;
+        }
+
+        .landing__sheet {
+            background: linear-gradient(to right, $secondary, $primary, $secondary),
+                url('./assets/menubg.jpg') no-repeat center center / cover;
+            background-attachment: fixed;
+            width: 80%;
+            min-height: 630px;
+            position: absolute;
+            top: 0;
+            right: 120%;
+            animation: slideright 0.8s ease-in forwards;
+            z-index: -2;
+        }
+
+        .landing__contactInfo {
+            @include flex(space-around, flex-start);
+            flex-direction: column;
+            background-color: $Yellow;
+            padding: 20px 30px;
+            margin: auto;
+            z-index: -1;
+            position: relative;
+            animation: pop 1s linear forwards;
+            white-space: nowrap;
+
+            @media (min-width: $stickSearch) {
+                position: absolute;
+                bottom: 0;
+                right: 0;
+            }
+
+            a {
+                @include font(700, 18px);
+
+            }
+
+            img {
+                padding: 0 15px;
+            }
         }
 
         .landing__scrollDown {
+            margin-left: 15px;
             writing-mode: vertical-lr;
             transform: rotate(180deg);
-            padding: 10px;
             color: $Fade;
+            text-decoration: none;
+            padding: 10px;
+            background: $Yellow;
+            text-shadow: 3px 2px 3px rgba(255, 255, 255, .2);
+            display: none;
+
+            img {
+                transform: rotate(180deg);
+                margin-bottom: 10px;
+            }
+
+            @media (min-width:$stickSearch) {
+                display: block;
+                margin-top: 111px;
+            }
+
+        }
+
+    }
+}
+
+.about {
+    @include font(600, 13px);
+    @include flex;
+    flex-direction: column;
+    max-width: 1180px;
+    margin: auto;
+    padding: 20px 18px;
+    background-color: $Fade;
+
+    @media (min-width: $tablet) {
+        @include flex(space-between, center);
+        flex-direction: row;
+    }
+
+    .about__description {
+        margin-right: 28px;
+
+        h3 {
+            width: 305px;
+            font-size: 40px;
+            letter-spacing: -1px;
+            line-height: 50px;
+            margin-bottom: 69px;
+        }
+
+        p {
+            line-height: 2;
+            font-weight: 400;
+
+            &:first-of-type {
+                margin-bottom: 46px;
+            }
+        }
+    }
+
+    .about__stats {
+        display: grid;
+        grid-template-columns: repeat(1, 200px);
+        grid-gap: 28px;
+        margin-top: 69px;
+
+        @media (min-width: $mobile) {
+            grid-template-columns: repeat(2, 200px);
+        }
+
+        @media (min-width: $tablet) {
+            margin-top: 0;
+        }
+
+        .about__stat {
+            @include flex;
+            flex-direction: column;
+            width: 200px;
+            height: 200px;
+            background-color: $Boxbg;
+            animation: pop 0.5s linear forwards;
+
+            div {
+                font-size: 40px;
+                color: $Yellow;
+            }
+
+            span {
+                line-height: 50px;
+            }
+        }
+    }
+}
+
+.aparts__wrapper {
+    background-color: #f6f5f4;
+
+    .aparts {
+        margin: 50px auto;
+        max-width: 1180px;
+
+        h3 {
+            @include font(700, 40px);
+            letter-spacing: -1px;
+            line-height: 50px;
+            max-width: 500px;
+            padding: 50px 25px 50px;
+            margin-left: 20px;
+        }
+
+        .aparts__preview {
+            display: grid;
+            grid-template-columns: repeat(1, 350px);
+            grid-template-rows: repeat(6, 500px);
+
+            grid-gap: 30px;
+            justify-content: center;
+
+
+            @media (min-width: $tablet) {
+                grid-template-columns: repeat(2, 350px);
+                grid-template-rows: repeat(3, 500px);
+            }
+
+            @media (min-width: $desktop) {
+                grid-template-columns: repeat(3, 350px);
+                grid-template-rows: repeat(2, 500px);
+            }
+
+            .aparts__preview-container {
+                @include font(600, 15px);
+                box-shadow: 0px 2px 12.5px rgba(23, 44, 51, 0.15);
+
+                &:hover {
+                    transition: transform 0.2s ease-in-out;
+                    transform: translateY(-20px);
+                }
+
+
+                &:nth-of-type(1) {
+                    .preview-container-img {
+                        background: url('./assets/aparts/The Fairmont1.jpg') no-repeat center center / cover;
+                    }
+                }
+
+                &:nth-of-type(2) {
+                    .preview-container-img {
+                        background: url('./assets/aparts/The Encore.jpg') no-repeat center center / cover;
+                    }
+                }
+
+                &:nth-of-type(3) {
+                    .preview-container-img {
+                        background: url('./assets/aparts/Paramount Tower1.jpg') no-repeat center center / cover;
+                    }
+                }
+
+                &:nth-of-type(4) {
+                    .preview-container-img {
+                        background: url('./assets/aparts/Paramount Tower2.jpg') no-repeat center center / cover;
+                    }
+                }
+
+                &:nth-of-type(5) {
+                    .preview-container-img {
+                        background: url('./assets/aparts/Paramount Tower3.jpg') no-repeat center center / cover;
+                    }
+                }
+
+                &:nth-of-type(6) {
+                    .preview-container-img {
+                        background: url('./assets/aparts/The Fairmont2.jpg') no-repeat center center / cover;
+                    }
+                }
+
+                .preview-container-img {
+                    @include apartsFont;
+                    width: 350px;
+                    height: 380px;
+                    margin-bottom: 20px;
+
+                }
+
+                h4 {
+                    padding: 0 10px;
+                }
+
+                .preview-container-info {
+                    @include flex(space-between, center);
+                    margin-top: 20px;
+                    padding: 0 10px;
+
+                    .price {
+                        line-height: 50px;
+                        font-size: 18px;
+                        color: $Yellow;
+                    }
+
+                    .apartLayout {
+                        font-size: 13px;
+                        color: $Fade;
+                    }
+                }
+            }
+        }
+
+        .aparts__bottomflex {
+            @include flex(flex-start);
+            padding: 50px 0 50px;
+            flex-wrap: wrap;
+
+            .search2 {
+                margin-top: 0;
+                z-index: 2;
+                order: 2;
+
+            }
+
+            .aparts__viewall {
+                @include font(600, 15px);
+                margin: 50px;
+                padding: 30px 40px;
+                background-color: #fff;
+                border-radius: 5px;
+                animation: pop 1.2s linear forwards;
+
+                @media (max-width: $desktop) {
+                    margin: auto;
+                }
+            }
         }
     }
 }

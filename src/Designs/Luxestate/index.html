@@ -17,9 +17,6 @@
 </head>
 
 <body>
-
-    <div class="mainbg"></div>
-
     <header>
         <div id="header__menuBtn" onclick="toggleMobileMenu(this)">
             <div class="menuBtn_bar1"></div>
@@ -43,7 +40,7 @@
 
     <section class="landing">
         <div class="landing__container">
-
+            <div class="landing__sheet"></div>
             <h2 class="landing__heading">Find Your New Modern Apartment</h2>
             <div class="search">
                 <div class="search_container">
@@ -88,25 +85,160 @@
                     </a>
                     <p></p>
                 </div>
-            </div>
-            <a class="landing__scrollDown"><img src="./assets/scrollDown.png" alt="arrow.png">Scroll Down</a>
 
-            <div class="landing__sheet">
-                <div class="landing__contactInfo"><a href="tel:(000)123-4567"><img src="./assets/phoneIcon.png"
-                            alt="PhoneIcon.png">
-                        (000)123-4567</a>
-                    <a href="https://goo.gl/maps/PXSKECsyTpidmPFS6" target="_blank"><img src="./assets/locationIcon.png"
-                            alt="LocationIcon.png"> New York,
-                        USA</a>
-                </div>
             </div>
+
+
+            <div class="landing__contactInfo"><a href="tel:(000)123-4567"><img src="./assets/phoneIcon.png"
+                        alt="PhoneIcon.png">
+                    (000)123-4567</a>
+                <a href="https://goo.gl/maps/PXSKECsyTpidmPFS6" target="_blank"><img src="./assets/locationIcon.png"
+                        alt="LocationIcon.png"> New York,
+                    USA</a>
+            </div>
+            <a href="#footer" class="landing__scrollDown"><img src="./assets/scrollDown.png" alt="arrow.png">Scroll
+                Down</a>
+
 
         </div>
     </section>
+    <section id="about" class="about">
+        <div class="about__description">
+            <h3>Our Company Statistics</h3>
+            <p>In this space market-facing, yet UI work flows , or bake it in. Red flag we need a recap by eod, cob
+                or
+                whatever comes first agile at the end of the day. Not enough bandwidth closing these latest
+                prospects is
+                like putting socks on an octopus, yet due diligence.</p>
+            <p>
+                We need to get all stakeholders up to speed and in the right place hard stop, or technologically
+                savvy
+                or pre launch. Pro-sumer software commitment to the cause offline this discussion and wiggle room
+                blue
+                sky. Beef up teams were able to drive adoption and awareness. Screw the pooch killing it. </p>
+        </div>
+        <div class="about__stats">
+            <div class="about__stat">
+                <div>748</div><span>Apartments</span>
+            </div>
+            <div class="about__stat">
+                <div>3854</div><span>Clients</span>
+            </div>
+            <div class="about__stat">
+                <div>24</div><span>Employees</span>
+            </div>
+            <div class="about__stat">
+                <div>14</div><span>Awards</span>
+            </div>
+        </div>
+    </section>
+    <div class="aparts__wrapper">
+        <section id="aparts" class="aparts">
+            <h3>More Then 500+ Apartments For Rent</h3>
+            <div class="aparts__preview">
+                <div class="aparts__preview-container">
+                    <div class="preview-container-img">The Fairmont</div>
+                    <h4>Upper East Side, 2577, New York</h4>
+                    <div class="preview-container-info">
+                        <div class="price">$3,500</div>
+                        <div class="apartLayout"><img src="">2 BA <img src="">2 BD</div>
+                    </div>
+                </div>
+                <div class="aparts__preview-container">
+                    <div class="preview-container-img">The Encore</div>
+                    <h4>Upper West Side, 8268, New York</h4>
+                    <div class="preview-container-info">
+                        <div class="price">$3,500</div>
+                        <div class="apartLayout"><img src="">2 BA <img src="">2 BD</div>
+                    </div>
+                </div>
+                <div class="aparts__preview-container">
+                    <div class="preview-container-img">Paramount Tower</div>
+                    <h4>Midtown East, 1902, New York</h4>
+                    <div class="preview-container-info">
+                        <div class="price">$3,500</div>
+                        <div class="apartLayout"><img src="">2 BA <img src="">2 BD</div>
+                    </div>
+                </div>
+                <div class="aparts__preview-container">
+                    <div class="preview-container-img">Paramount Tower</div>
+                    <h4>Midtown East, 3371, New York</h4>
+                    <div class="preview-container-info">
+                        <div class="price">$3,500</div>
+                        <div class="apartLayout"><img src="">2 BA <img src="">2 BD</div>
+                    </div>
+                </div>
+                <div class="aparts__preview-container">
+                    <div class="preview-container-img">Paramount Tower</div>
+                    <h4>Midtown East, 5503, New York </h4>
+                    <div class="preview-container-info">
+                        <div class="price">$3,500</div>
+                        <div class="apartLayout"><img src="">2 BA <img src="">2 BD</div>
+                    </div>
+                </div>
+                <div class="aparts__preview-container">
+                    <div class="preview-container-img">The Fairmont</div>
+                    <h4>Upper East Side, 6378, New York</h4>
+                    <div class="preview-container-info">
+                        <div class="price">$3,500</div>
+                        <div class="apartLayout"><img src="">2 BA <img src="">2 BD</div>
+                    </div>
+                </div>
+            </div>
+            <div class="aparts__bottomflex">
+                <div class="search2">
+                    <div class="search_container">
+
+                        <img class="search_icon" src="./assets/searchIcon.png" alt="searchIcon">
+                        <input class="search_input" id="search2" onkeyup="search_location2()" name="search"
+                            placeholder="Search locations" autocomplete="off">
+                        <button class="search_button" type="button">Search</button>
+
+                    </div>
+                    <div id="locationCards2" class="search_locationCards2">
+
+                        <a href="#Fairmont1" class="search_locationCard2">
+                            <div class="name">The Fairmont</div>
+                            <div class="location">Upper East Side</div>
+                            <img src="./assets/aparts/The Fairmont1.jpg" alt="ApartmentImage.jpg">
+                        </a>
+                        <a href="#Encore" class="search_locationCard2">
+                            <div class="name">The Encore</div>
+                            <div class="location">Upper West Side</div>
+                            <img src="./assets/aparts/The Encore.jpg" alt="ApartmentImage.jpg">
+                        </a>
+                        <a href="#Tower1" class="search_locationCard2">
+                            <div class="name">Paramount Tower</div>
+                            <div class="location">Midtown East</div>
+                            <img src="./assets/aparts/Paramount Tower1.jpg" alt="ApartmentImage.jpg">
+                        </a>
+                        <a href="#Tower2" class="search_locationCard2">
+                            <div class="name">Paramount Tower</div>
+                            <div class="location">Midtown East</div>
+                            <img src="./assets/aparts/Paramount Tower2.jpg" alt="ApartmentImage.jpg">
+                        </a>
+                        <a href="#Tower3" class="search_locationCard2">
+                            <div class="name">Paramount Tower</div>
+                            <div class="location">Midtown East</div>
+                            <img src="./assets/aparts/Paramount Tower3.jpg" alt="ApartmentImage.jpg">
+                        </a>
+                        <a href="#Fairmont2" class="search_locationCard2">
+                            <div class="name">The Fairmont</div>
+                            <div class="location">Upper East Side</div>
+                            <img src="assets/aparts/The Fairmont2.jpg" alt="ApartmentImage.jpg">
+                        </a>
+                        <p></p>
+                    </div>
+                </div>
+                <a href="#" class="aparts__viewall">View All Apartments</a>
+            </div>
+        </section>
+    </div>
+    <footer id="footer"></footer>
 
     <script>
         document.onmousemove = e => {
-            document.querySelector("body").style.transform = `translate(-${e.clientX * 0.01}px, -${e.clientY * 0.01}px)`;
+            document.querySelector("body").style.transform = `translate(-${e.clientX * 0.005}px, -${e.clientY * 0.005}px)`;
         }
     </script>
 </body>
