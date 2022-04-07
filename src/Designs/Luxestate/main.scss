@@ -9,6 +9,8 @@ body {
     background-attachment: fixed;
 }
 
+
+
 header {
     max-width: 1180px;
     margin: auto;
@@ -61,7 +63,7 @@ header {
             @include flex;
             flex-direction: column;
             background-color: $UIColor;
-            position: fixed; //z-index no work, need relative
+            position: fixed;
             top: 105px;
             left: -100%;
             width: 100%;
@@ -88,10 +90,10 @@ header {
                 top: 35px;
                 left: auto;
                 display: flex;
+                flex-direction: row;
                 height: auto;
                 width: auto;
                 background: 0;
-                flex-direction: row;
                 animation: none;
             }
         }
@@ -146,7 +148,7 @@ header {
     // position: absolute;
     @include flex(center, flex-start);
     flex-direction: column;
-    z-index: 0; //z-index blocking burger menu, need -1
+    z-index: 1; //z-index blocking burger menu, need -1
     position: relative;
 
     @media (max-width: $stickSearch) {
@@ -224,7 +226,7 @@ header {
         border: 2px solid $Dark;
         position: absolute;
         top: 130px;
-        // display: none;
+        display: none;
 
         .search_locationCard,
         .search_locationCard2 {
@@ -303,6 +305,7 @@ a {
             right: 120%;
             animation: slideright 0.8s ease-in forwards;
             z-index: -2;
+            filter: drop-shadow(0px 2px 12.5px rgba(23, 44, 51, 0.5));
         }
 
         .landing__contactInfo {
@@ -311,7 +314,6 @@ a {
             background-color: $Yellow;
             padding: 20px 30px;
             margin: auto;
-            z-index: -1;
             position: relative;
             animation: pop 1s linear forwards;
             white-space: nowrap;
@@ -428,7 +430,7 @@ a {
 }
 
 .aparts__wrapper {
-    background-color: #f6f5f4;
+    background-color: #ffffffd5;
 
     .aparts {
         margin: 50px auto;
@@ -457,14 +459,14 @@ a {
                 grid-template-rows: repeat(3, 500px);
             }
 
-            @media (min-width: $desktop) {
+            @media (min-width: $desktopPlus) {
                 grid-template-columns: repeat(3, 350px);
                 grid-template-rows: repeat(2, 500px);
             }
 
             .aparts__preview-container {
                 @include font(600, 15px);
-                box-shadow: 0px 2px 12.5px rgba(23, 44, 51, 0.15);
+                filter: drop-shadow(0px 2px 12.5px rgba(23, 44, 51, 0.5));
 
                 &:hover {
                     transition: transform 0.2s ease-in-out;
@@ -563,6 +565,180 @@ a {
                     margin: auto;
                 }
             }
+        }
+    }
+}
+
+.how {
+    max-width: 1180px;
+    margin: auto;
+    @include font(13px, 600);
+    background-color: rgba(255, 255, 255, 0.719);
+    margin-bottom: 200px;
+    text-align: left;
+    padding-bottom: 40px;
+
+    h4 {
+        font-size: 40px;
+        font-weight: 700;
+        letter-spacing: -1px;
+        line-height: 50px;
+        margin-left: 25px;
+    }
+
+    .how__description {
+        line-height: 30px;
+        max-width: 361px;
+        margin: 27px 0 102px 30px;
+    }
+
+    .how__cards {
+        display: grid;
+        margin: auto;
+        gap: 33px;
+        justify-content: center;
+
+        @media (min-width: $tablet) {
+            grid-template-columns: repeat(2, 345px);
+        }
+
+        @media (min-width: $desktopPlus) {
+            grid-template-columns: repeat(3, 345px);
+        }
+
+        .how__card {
+            @include flex(center, flex-start);
+            flex-direction: column;
+            position: relative;
+            height: 373px;
+            padding: 0 67px 0 70px;
+            background-color: #fff;
+            overflow: hidden;
+            filter: drop-shadow(0px 2px 12.5px rgba(23, 44, 51, 0.192));
+
+            &:hover {
+                background-color: $Yellow;
+                color: #fff;
+                transform: translateY(-5px);
+                transition: transform .2s ease-in-out;
+
+                a {
+                    color: #fff;
+                }
+            }
+
+            .how__card-under {
+                font-size: 170px;
+                font-weight: 700;
+                margin-top: -60px;
+                margin-left: -100px;
+            }
+
+            h5 {
+                font-size: 18px;
+                font-weight: 600;
+                line-height: 63px;
+
+                span {
+                    margin-right: 10px;
+                    margin-left: -20px;
+                }
+            }
+
+            p {
+                line-height: 30px;
+                max-width: 250px;
+                margin-bottom: 20px;
+            }
+
+            a {
+                line-height: 30px;
+                max-width: 212px;
+                font-size: 15px;
+                font-weight: 700;
+                text-decoration: underline 2px;
+                text-underline-offset: 8px;
+                margin-bottom: 45px;
+            }
+        }
+    }
+}
+
+.footer {
+    background-color: $Dark;
+
+    .footer__important {
+        max-width: 1180px;
+        margin: auto;
+        flex-wrap: wrap;
+        @include flex(space-between, center);
+        padding: 60px 20px 40px;
+
+        .footer__logo {
+            @include font(600, 40px);
+            letter-spacing: -1px;
+            color: #fff;
+
+            h1 {
+                white-space: pre-line
+            }
+        }
+
+        .footer__subscribe {
+            @include flex;
+            gap: 0;
+
+            input {
+                color: $Fade;
+                border: 0;
+                outline: 0;
+                padding: 22px 60px 22px 20px;
+            }
+
+            button {
+                background: url('./assets/arrowBtn.png') no-repeat center center;
+                background-color: #fff;
+                border: 0;
+                padding: 30px 30px;
+            }
+        }
+    }
+
+    hr {
+        max-width: 1180px;
+        margin-bottom: 80px;
+    }
+
+    .footer__conclusion {
+        max-width: 1180px;
+        margin: auto;
+        padding: 80px auto 80px;
+        display: grid;
+        grid-template-columns: repeat(6, 1fr);
+        @include font;
+        color: #fff;
+
+        div div {
+            margin-bottom: 20px;
+        }
+
+        h4 {
+            font-size: 25px;
+            font-weight: 600;
+            letter-spacing: -1px;
+        }
+
+        h5 {
+            color: $Fade;
+            margin-bottom: 55px;
+        }
+
+        .copyright {
+            max-width: 150px;
+            font-size: 14px;
+            line-height: 21px;
+            font-family: "Work Sans";
+            margin-top: 80px;
         }
     }
 }

@@ -48,4 +48,6 @@ table {
 }
 * {
 	box-sizing: border-box;
+	color: inherit;
+    font-family: inherit;
 }

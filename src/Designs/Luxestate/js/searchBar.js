@@ -23,18 +23,11 @@
 //     }
 // });
 
-// $(window).ready(function () {
-//     $("search").focusin(function () {
-//         $("#locationCards").show();
-//     }).focusout(function () {
-//         $("#locationCards").hide();
-//     });
-// });
 
 $(document).ready(function () {
-    $("#locationCards").hide();
     $("#search").focus(function () {
         $('#locationCards').show('fast');
+        $('#locationCards').css("display", "grid");
     });
     $('#search').blur(function () {
         if (!$(this).val()) {
@@ -42,11 +35,10 @@ $(document).ready(function () {
         }
     });
 });
-
 $(document).ready(function () {
-    $("#locationCards2").hide();
     $("#search2").focus(function () {
         $('#locationCards2').show('fast');
+        $('#locationCards2').css("display", "grid");
     });
     $('#search2').blur(function () {
         if (!$(this).val()) {
