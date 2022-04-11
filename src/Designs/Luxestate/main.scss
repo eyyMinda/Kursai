@@ -298,7 +298,6 @@ a {
         .landing__sheet {
             background: linear-gradient(to right, $secondary, $primary, $secondary),
                 url('./assets/menubg.jpg') no-repeat center center / cover;
-            background-attachment: fixed;
             width: 80%;
             min-height: 630px;
             position: absolute;
