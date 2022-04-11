@@ -7,6 +7,7 @@ body {
     background: linear-gradient(to right, $primary, $secondary, $primary),
         url("./assets/bg.jpg") no-repeat center center / cover;
     background-attachment: fixed;
+    width: 100vw;
 }
 
 
@@ -576,7 +577,7 @@ a {
     background-color: rgba(255, 255, 255, 0.719);
     margin-bottom: 200px;
     text-align: left;
-    padding-bottom: 40px;
+    padding: 40px;
 
     h4 {
         font-size: 40px;
@@ -648,7 +649,6 @@ a {
             p {
                 line-height: 30px;
                 max-width: 250px;
-                margin-bottom: 20px;
             }
 
             a {
@@ -658,7 +658,7 @@ a {
                 font-weight: 700;
                 text-decoration: underline 2px;
                 text-underline-offset: 8px;
-                margin-bottom: 45px;
+                margin: 20px 0 45px;
             }
         }
     }
@@ -709,14 +709,28 @@ a {
         margin-bottom: 80px;
     }
 
+
     .footer__conclusion {
         max-width: 1180px;
         margin: auto;
         padding: 80px auto 80px;
-        display: grid;
-        grid-template-columns: repeat(6, 1fr);
         @include font;
         color: #fff;
+        @include flex(center, flex-start);
+
+        div:not(.footer__conclusion-main) {
+            display: none;
+        }
+
+        @media (min-width:$tablet) {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+
+            div:not(.footer__conclusion-main) {
+                display: block;
+            }
+        }
+
 
         div div {
             margin-bottom: 20px;
@@ -726,6 +740,7 @@ a {
             font-size: 25px;
             font-weight: 600;
             letter-spacing: -1px;
+            margin-bottom: 80px;
         }
 
         h5 {
@@ -738,7 +753,7 @@ a {
             font-size: 14px;
             line-height: 21px;
             font-family: "Work Sans";
-            margin-top: 80px;
+            margin-bottom: 20px;
         }
     }
 }
