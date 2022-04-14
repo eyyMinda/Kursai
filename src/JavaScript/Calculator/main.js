@@ -55,7 +55,9 @@ function equals(pressed) {
     isEqualsPressed = pressed;
     if (symbol) {
         stored.textContent = storedNum + symbol + Number(viewer.textContent) + " =";
-    } else { stored.textContent = Number(viewer.textContent) + " ="; } //Nebaigta su šaknim √
+    } else {
+        stored.textContent = Number(viewer.textContent) + " =";
+    } //Nebaigta su šaknim √
 
     if (symbol == '+') {
         viewer.textContent = storedNum + Number(viewer.textContent);
