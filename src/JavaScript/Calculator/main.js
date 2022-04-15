@@ -47,8 +47,9 @@ function mathAction(activeSymbol) {
     viewer.textContent = 0;
     if (symbol) {
         stored.textContent = storedNum + symbol;
-    } else { stored.textContent = storedNum; }
-
+    } else {
+        stored.textContent = storedNum;
+    } //Nebaigta su šaknim √
 }
 
 function equals(pressed) {
@@ -57,8 +58,7 @@ function equals(pressed) {
         stored.textContent = storedNum + symbol + Number(viewer.textContent) + " =";
     } else {
         stored.textContent = Number(viewer.textContent) + " =";
-    } //Nebaigta su šaknim √
-
+    }
     if (symbol == '+') {
         viewer.textContent = storedNum + Number(viewer.textContent);
     } else if (symbol == '-') {
