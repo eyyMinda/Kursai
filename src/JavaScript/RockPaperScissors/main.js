@@ -18,6 +18,7 @@ function checkAnswer(number) {
     else if (compChoice == 3) {
         console.log("Computer picked Scissors!");
     }
+    
     if (number == compChoice) {
         alert("It's a Draw!")
     } else if (number == 1 && compChoice == 3 || number == 2 && compChoice == 1 || number == 3 && compChoice == 2) {
