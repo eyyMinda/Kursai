@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Modern Apartments</title>
+
+    <!-- <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Work+Sans&display=swap"
+        rel="stylesheet"> -->
+
+    <link rel="stylesheet" href="reset.css">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="background">
+        <header>
+            <h1 class="header__logo"><a href="">luxestate</a></h1>
+            <nav class="header__nav">
+                <ul class="header__nav-center">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#aparts">Appartments</a></li>
+                    <li><a href="#">How It Work</a></li>
+                    <li><a href="#">Agents</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                </ul>
+                <ul class="header__nav-right">
+                    <li><a href="#">Join Us</a></li>
+                    <li id="signup" class="inbox"><a href="#singup">Getting Started</a></li>
+                </ul>
+            </nav>
+            <div id="header__menuBtn" onclick="toggleMobileMenu(this)">
+                <div class="menuBtn_bar1"></div>
+                <div class="menuBtn_bar2"></div>
+                <div class="menuBtn_bar3"></div>
+                <ul id="header__menu">
+                    <li><a href="#about">About</a></li>
+                    <li><a href="#aparts">Appartments</a></li>
+                    <li><a href="#">How It Work</a></li>
+                    <li><a href="#">Agents</a></li>
+                    <li><a href="#">Contact Us</a></li>
+                    <li><a href="#">Join Us</li></a>
+                    <li id="signup"><a href="#singup" class="inbox">Getting Started</a></li>
+                </ul>
+            </div>
+        </header>
+
+        <section id="landing" class="landing">
+
+            <div class="landing__slideContainer">
+
+                <div class="landing__slideContainer-sheet"></div>
+                <h2 class="landing__slideContainer-cheer">Find Your New Modern Apartment</h2>
+                <div class="search-container">
+                    <img src="./assets/searchIcon.png" class="search_icon"></img>
+                    <input class="search_input" type="text" placeholder="Search locations">
+                    <button class="search_button" type="button">Search</button>
+                </div>
+                <div class="landing__slideContainer-info">
+                    <div class="landing__info-phone"><img src="./assets/phoneIcon.png">(000)123-4567</div>
+                    <div class="landing__info-location"><img src="./assets/locationIcon.png">Melbourne, Australia</div>
+                </div>
+                <a class="landing__scrollDown" href="#footer"><img src="./assets/scrollDown.png">Scroll Down</a>
+            </div>
+
+
+        </section>
+        <section id="about" class="about">
+            <div class="about__description">
+                <h3>Our Company Statistics</h3>
+                <p>In this space market-facing, yet UI work flows , or bake it in. Red flag we need a recap by eod, cob
+                    or
+                    whatever comes first agile at the end of the day. Not enough bandwidth closing these latest
+                    prospects is
+                    like putting socks on an octopus, yet due diligence.</p>
+                <p>
+                    We need to get all stakeholders up to speed and in the right place hard stop, or technologically
+                    savvy
+                    or pre launch. Pro-sumer software commitment to the cause offline this discussion and wiggle room
+                    blue
+                    sky. Beef up teams were able to drive adoption and awareness. Screw the pooch killing it. </p>
+            </div>
+            <div class="about__stats">
+                <div class="about__stat">
+                    <div>748</div><span>Apartments</span>
+                </div>
+                <div class="about__stat">
+                    <div>3854</div><span>Clients</span>
+                </div>
+                <div class="about__stat">
+                    <div>24</div><span>Employees</span>
+                </div>
+                <div class="about__stat">
+                    <div>14</div><span>Awards</span>
+                </div>
+            </div>
+        </section>
+        <div class="aparts__wrapper">
+            <section id="aparts" class="aparts">
+                <h3>More Then 500+ Apartments For Rent</h3>
+                <div class="aparts__preview">
+                    <div class="aparts__preview-container">
+                        <div class="preview-container-img"></div>
+                        <h4>Random Street, Apt B453, New York</h4>
+                        <div class="preview-container-info">
+                            <div class="price">$3,500</div>
+                            <div class="apartLayout"><img src="">2 BA <img src="">2 BD</div>
+                        </div>
+                    </div>
+                    <div class="aparts__preview-container">
+                        <div class="preview-container-img"></div>
+                        <h4>Random Street, Apt B453, New York</h4>
+                        <div class="preview-container-info">
+                            <div class="price">$3,500</div>
+                            <div class="apartLayout"><img src="">2 BA <img src="">2 BD</div>
+                        </div>
+                    </div>
+                    <div class="aparts__preview-container">
+                        <div class="preview-container-img"></div>
+                        <h4>Random Street, Apt B453, New York</h4>
+                        <div class="preview-container-info">
+                            <div class="price">$3,500</div>
+                            <div class="apartLayout"><img src="">2 BA <img src="">2 BD</div>
+                        </div>
+                    </div>
+                    <div class="aparts__preview-container">
+                        <div class="preview-container-img"></div>
+                        <h4>Random Street, Apt B453, New York</h4>
+                        <div class="preview-container-info">
+                            <div class="price">$3,500</div>
+                            <div class="apartLayout"><img src="">2 BA <img src="">2 BD</div>
+                        </div>
+                    </div>
+                    <div class="aparts__preview-container">
+                        <div class="preview-container-img"></div>
+                        <h4>Random Street, Apt B453, New York</h4>
+                        <div class="preview-container-info">
+                            <div class="price">$3,500</div>
+                            <div class="apartLayout"><img src="">2 BA <img src="">2 BD</div>
+                        </div>
+                    </div>
+                    <div class="aparts__preview-container">
+                        <div class="preview-container-img"></div>
+                        <h4>Random Street, Apt B453, New York</h4>
+                        <div class="preview-container-info">
+                            <div class="price">$3,500</div>
+                            <div class="apartLayout"><img src="">2 BA <img src="">2 BD</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="aparts__bottomflex">
+                    <div class="search-container">
+                        <img src="./assets/searchIcon.png" class="search_icon"></img>
+                        <input class="search_input" type="text" placeholder="Search locations">
+                        <button class="search_button" type="button">Search</button>
+                    </div>
+                    <a href="#" class="aparts__viewall">View All Apartments</a>
+                </div>
+            </section>
+        </div>
+        <footer id="footer"></footer>
+    </div>
+
+    <script src="./js/mobilemMenuBtn.js"></script>
+
+</body>
+
+</html>

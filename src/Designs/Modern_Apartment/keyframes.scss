@@ -1,0 +1,52 @@
+@keyframes slidedown {
+    100% {
+        top: -45px;
+        right: -100%;
+        background-color: cadetblue;
+    }
+}
+
+@keyframes slideleft {
+    100% {
+        margin-left: 30px;
+
+        .landing__slideContainer-cheer {
+            z-index: 2;
+        }
+    }
+}
+
+@media (max-width:$tablet) {
+    @keyframes slideleft {
+        100% {
+            margin-left: 30px;
+            max-width: fit-content;
+            transform: scale(0.8);
+        }
+    }
+}
+
+@keyframes slideright {
+
+    100% {
+        right: 0;
+    }
+}
+
+@keyframes pop {
+    0% {
+        transform: scale(0);
+    }
+
+    70% {
+        transform: scale(0);
+    }
+
+    85% {
+        transform: scale(1);
+    }
+
+    93% {
+        transform: scale(1.2);
+    }
+}

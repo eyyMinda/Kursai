@@ -1,0 +1,22 @@
+@mixin flex($horizontal: center, $vertical: center) {
+    display: flex;
+    justify-content: $horizontal;
+    align-items: $vertical;
+
+}
+
+@mixin font($bold: 400, $fsize: 13px) {
+    font-family: 'Montserrat', sans-serif;
+    font-weight: $bold;
+    font-size: $fsize;
+    color: $Dark;
+}
+
+@mixin inbox {
+    border-radius: 5px;
+    background-color: $Yellow;
+    text-align: center;
+    padding: 15px 15px;
+}
+
+//font-family: 'Work Sans', sans-serif;     for copyright
