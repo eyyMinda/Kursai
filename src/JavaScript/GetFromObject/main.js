@@ -61,12 +61,15 @@ function sumAge(param) {
         .reduce((a, b) => a + b);
 }
 
-/////////////////\\\\\\\\\\\\\
+/////////////////.Some\\\\\\\\\\\\\
 
-const someMales = characters.some((char) => char.gender === 'female' && char.age > 20)
-console.log(someMales);
-const someNationalities = characters.some((char) => char.age < 18 && char.nationality === 'american');
-console.log(someNationalities);
+// const someMales = characters.some((char) => char.gender === 'female' && char.age > 20)
+// console.log(someMales);
+// const someNationalities = characters.some((char) => char.age < 18 && char.nationality === 'american');
+// console.log(someNationalities);
+
+/////////////////Sort??\\\\\\\\\\\\\
+
 // characters.sort(function (a, b) {
 //     return a.value - b.value;
 // });

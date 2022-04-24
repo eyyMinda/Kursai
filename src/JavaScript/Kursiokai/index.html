@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>40 gr. 2022.02.28 Front-End InvestLT</title>
+    <link rel="stylesheet" href="reset.css">
+    <script src="backendList.js" type="text/javascript" defer></script>
+    <script src="main.js" type="text/javascript" defer></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
+        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+
+</head>
+
+<body class="bg-success">
+    <section class="container text-center">
+        <h1 class="text-center">40th Front-End group // 2022.02.28</h1>
+        <button class="btn btn-secondary" id="btnAll">Full List</button>
+        <button class="btn btn-secondary" id="btnMales">Males</button>
+        <button class="btn btn-secondary" id="btnFemales">Females</button>
+        <button class="btn btn-secondary" id="btnLessThan30">Younger Than 30</button>
+        <button class="btn btn-secondary" id="btnHeight175">Higher Than 175</button>
+        <button class="btn btn-secondary" id="btnSkillNot5">Coding Skill Less Than 5</button>
+        <button class="btn btn-secondary" id="btnSkill5">Coding Pro</button>
+        <table class="table table-dark table-striped m-2">
+            <thead>
+                <tr>
+                    <th onclick="sortbyAlph('firstName')">Name</th>
+                    <th onclick="sortbyAlph('lastName')">Last Name</th>
+                    <th onclick="sortbyNumber('age')">Age</th>
+                    <th onclick="sortbyAlph('gender')">Gender</th>
+                    <th onclick="sortbyAlph('hobby')">Hobby</th>
+                    <th onclick="sortbyNumber('height')">Height</th>
+                    <th onclick="sortbyNumber('codingSkill')">Coding Skill</th>
+                </tr>
+            </thead>
+            <tbody id="tbody"></tbody>
+        </table>
+    </section>
+    <section class="container font-monospace fs-5 bg-gradient p-2">
+        <h2 class="m-4">Add To List</h2>
+        <div class="m-4">
+            <div class="row m-2"><label class="row">First Name:</label><input class="col-7" id="inputName" required>
+            </div>
+            <div class="row m-2"><label class="row">Last Name:</label><input class="col-7" id="inputLastName" required>
+            </div>
+            <div class="row m-2"><label class="row">Age:</label><input class="col-7" id="inputAge" type="number"
+                    required></div>
+            <div class="row m-2"><label class="row">Gender:</label><input class="col-7" id="inputGender" required></div>
+            <div class="row m-2"><label class="row">Hobby:</label><input class="col-7" id="inputHobby" required></div>
+            <div class="row m-2"><label class="row">Height:</label><input class="col-7" id="inputHeight" type="number"
+                    required></div>
+            <div class="row m-2"><label class="row">Code Skill:</label><input class="col-7" id="inputSkill"
+                    type="number" required></div>
+            <button class="btn btn-danger p-2 m-2" onclick="addToList()">Add to List</button>
+        </div>
+    </section>
+</body>
+
+</html>
