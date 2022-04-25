@@ -10,50 +10,19 @@ const heightMore175 = document.getElementById('btnHeight175');
 const skillNot5 = document.getElementById('btnSkillNot5');
 const skill5 = document.getElementById('btnSkill5');
 
-let keys = Object.keys(users[0]);
-
-/////////////////INPUTS\\\\\\\\\\\\\
-
-const inputName = document.getElementById('inputName');
-const inputLastName = document.getElementById('inputLastName');
-const inputAge = document.getElementById('inputAge');
-const inputGender = document.getElementById('inputGender');
-const inputHobby = document.getElementById('inputHobby');
-const inputHeight = document.getElementById('inputHeight');
-const inputSkill = document.getElementById('inputSkill');
-
-/////////////////ADD TO LIST\\\\\\\\\\\\\
-
-function addToList() {
-    let addUser = [
-        {
-            firstName: inputName.value,
-            lastName: inputLastName.value,
-            age: inputAge.value,
-            gender: inputGender.value,
-            hobby: inputHobby.value,
-            height: inputHeight.value,
-            codingSkill: inputSkill.value,
-        },
-    ];
-    console.log(addUser);
-    users.push.apply(users, addUser);
-    addUser.value = '';
-    renderTbodyData(users);
-}
-
-// DOES NOT WORK WITH BUTTONS. CONST TO LET DOES NOT HELP
-
 /////////////////SELECTED DATA\\\\\\\\\\\\\
 
-const userMale = users.filter((user) => user.gender === 'male');
-const userFemale = users.filter((user) => user.gender === 'female');
-const userAge30 = users.filter((user) => user.age < 30);
-const userHeight175 = users.filter((user) => user.height > 175);
-const userSkillNot5 = users.filter((user) => user.codingSkill != 5);
-const userSkill5 = users.filter((user) => user.codingSkill == 5);
+fullList.onclick = () => renderTbodyData(users);
+males.onclick = () => renderTbodyData(users = usersReset.filter((user) => user.gender === 'male'));
+females.onclick = () => renderTbodyData(users = usersReset.filter((user) => user.gender === 'female'));
+ageLess30.onclick = () => renderTbodyData(users = usersReset.filter((user) => user.age < 30));
+heightMore175.onclick = () => renderTbodyData(users = usersReset.filter((user) => user.height > 175));
+skillNot5.onclick = () => renderTbodyData(users = usersReset.filter((user) => user.codingSkill != 5));
+skill5.onclick = () => renderTbodyData(users = usersReset.filter((user) => user.codingSkill == 5));
 
 /////////////////BUILD DATA\\\\\\\\\\\\\
+
+let keys = Object.keys(users[0]);
 
 function renderTbodyData(param) {
     tbody.innerHTML = '';
@@ -69,33 +38,15 @@ function renderTbodyData(param) {
     buildRow();
 }
 
-fullList.onclick = () => renderTbodyData(users);
-males.onclick = () => renderTbodyData(userMale);
-females.onclick = () => renderTbodyData(userFemale);
-ageLess30.onclick = () => renderTbodyData(userAge30);
-heightMore175.onclick = () => renderTbodyData(userHeight175);
-skillNot5.onclick = () => renderTbodyData(userSkillNot5);
-skill5.onclick = () => renderTbodyData(userSkill5);
-
-/////////////////SORTING\\\\\\\\\\\\\
-
-
-const sortbyNumber = (param) => renderTbodyData(users.sort((a, b) => b[param] - a[param]));
-const sortbyAlph = (param) => renderTbodyData(users.sort((a, b) => a[param].localeCompare(b[param])));
-
-// const sortbyNumber = (param, isAsc) => renderTbodyData(users.sort((a, b) => (a[param] > b[param] ? 1 : -1) * (isAsc ? -1 : 1)));
-// return data.sort((a, b) => {
-//     return (a[prop] < b[prop] ? -1 : 1) * (isAsc ? 1 : -1)
-// });
-
 /////////////////BUILD HIGHEST OF[?] DATA ROW\\\\\\\\\\\\\
 
 const maxAge = () => users.reduce((prev, curr) => (prev.age > curr.age) ? prev : curr)
 const maxHeight = () => users.reduce((prev, curr) => (prev.height > curr.height) ? prev : curr)
-const maxSkill = () => users.reduce((prev, curr) => (prev.codingSkill != Number) ? prev : curr)
-
+const maxSkill = () => users.reduce((prev, curr) => (prev.codingSkill > curr.codingSkill) ? prev : curr)
+//Problem with sorting. Skill switches when toggleSorting by any String. 
 function buildRow() {
     const lastRowEl = document.createElement('tr');
+
     for (let key of keys) {
         const dataCellEl = document.createElement('td');
         switch (key) {
@@ -114,7 +65,66 @@ function buildRow() {
     tbody.appendChild(lastRowEl);
 }
 
+/////////////////INPUTS\\\\\\\\\\\\\
+
+const inputName = document.getElementById('inputName').value;
+const inputLastName = document.getElementById('inputLastName').value;
+const inputAge = document.getElementById('inputAge');
+const inputGender = document.getElementById('inputGender').value;
+const inputHobby = document.getElementById('inputHobby');
+const inputHeight = document.getElementById('inputHeight').value;
+const inputSkill = document.getElementById('inputSkill').value;
+
+/////////////////ADD TO LIST\\\\\\\\\\\\\
+// DOES NOT WORK WITH BUTTONS. CONST TO LET DOES NOT HELP
+
+function addToList() {
+    let addUser = [
+        {
+            firstName: inputName,
+            lastName: inputLastName,
+            age: inputAge,
+            gender: inputGender,
+            hobby: inputHobby,
+            height: inputHeight,
+            codingSkill: inputSkill,
+        },
+    ];
+    console.log(addUser);
+    users.push.apply(users, addUser);
+    addUser.value = '';
+    renderTbodyData(users);
+}
+
+/////////////////SORTING\\\\\\\\\\\\\\
+
+function sortbyAlph(param) {
+    order = !order;
+    users.sort(function (a, b) {
+        let x = a[param].toLowerCase();
+        let y = b[param].toLowerCase();
+        if (order) {
+            return x == y ? 0 : x > y ? 1 : -1; // if Name is the same as the other one, don't sort // if x(first name) is higher in alphabet -sort //else -1??
+        } else {
+            return x == y ? 0 : x < y ? 1 : -1;
+        }
+    });
+    renderTbodyData(users);
+}
+
+function sortbyNumber(param) {
+    order = !order;
+    users.sort(function (a, b) {
+        const x = a[param];
+        const y = b[param];
+        return (order ? x - y : y - x);
+    });
+    renderTbodyData(users);
+}
 
 /////////////////BUILD ON LOAD\\\\\\\\\\\\\
 
 renderTbodyData(users);
+
+/////////////////FETCH FROM API\\\\\\\\\\\\\
+

@@ -1,3 +1,4 @@
+let order = false;
 let users = [
     {
         firstName: "Rokas",
@@ -180,4 +181,4 @@ let users = [
         codingSkill: 2,
     },
 ];
-console.log(users.length);
+const usersReset = users;
