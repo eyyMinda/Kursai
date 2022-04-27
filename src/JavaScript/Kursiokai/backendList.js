@@ -1,6 +1,7 @@
 let order = false;
 let users = [
     {
+        numerics: '',
         firstName: "Rokas",
         lastName: "Skinderis",
         age: 28,

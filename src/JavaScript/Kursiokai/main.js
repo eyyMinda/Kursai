@@ -12,7 +12,7 @@ const skill5 = document.getElementById('btnSkill5');
 
 /////////////////SELECTED DATA\\\\\\\\\\\\\
 
-fullList.onclick = () => renderTbodyData(users);
+fullList.onclick = () => renderTbodyData(usersReset);
 males.onclick = () => renderTbodyData(users = usersReset.filter((user) => user.gender === 'male'));
 females.onclick = () => renderTbodyData(users = usersReset.filter((user) => user.gender === 'female'));
 ageLess30.onclick = () => renderTbodyData(users = usersReset.filter((user) => user.age < 30));
@@ -26,24 +26,34 @@ let keys = Object.keys(users[0]);
 
 function renderTbodyData(param) {
     tbody.innerHTML = '';
-    (param).map((user) => {
-        const rowEl = document.createElement('tr');
-        for (let key of keys) {
-            const dataCell = document.createElement('td');
-            dataCell.textContent = user[key];
-            rowEl.appendChild(dataCell);
-        };
-        tbody.appendChild(rowEl);
-    })
+
+    // for (const [index] of users.entries()) {
+    //     let indexMain = document.createElement('td');
+    //     indexMain = index +1;
+    //     console.log(index +1);
+
+        (param).map((user) => {
+            const rowEl = document.createElement('tr');
+
+            // rowEl.textContent =  indexMain;
+            for (let key of keys) {
+                const dataCell = document.createElement('td');
+                dataCell.textContent = user[key];
+                rowEl.appendChild(dataCell);
+            };
+            tbody.appendChild(rowEl);
+        })
+    // }
     buildRow();
 }
+
 
 /////////////////BUILD HIGHEST OF[?] DATA ROW\\\\\\\\\\\\\
 
 const maxAge = () => users.reduce((prev, curr) => (prev.age > curr.age) ? prev : curr)
 const maxHeight = () => users.reduce((prev, curr) => (prev.height > curr.height) ? prev : curr)
 const maxSkill = () => users.reduce((prev, curr) => (prev.codingSkill > curr.codingSkill) ? prev : curr)
-//Problem with sorting. Skill switches when toggleSorting by any String. 
+//Problem with sorting. If String is between Numbers, togglesorting brakes. Skill switches when toggleSorting by any String. 
 function buildRow() {
     const lastRowEl = document.createElement('tr');
 
