@@ -27,48 +27,35 @@ let keys = Object.keys(users[0]);
 function renderTbodyData(param) {
     tbody.innerHTML = '';
 
-    // for (const [index] of users.entries()) {
-    //     let indexMain = document.createElement('td');
-    //     indexMain = index +1;
-    //     console.log(index +1);
+    (param).map((user, i) => {
+        const rowEl = document.createElement('tr');
+        user.numerics = i + 1
 
-        (param).map((user) => {
-            const rowEl = document.createElement('tr');
-
-            // rowEl.textContent =  indexMain;
-            for (let key of keys) {
-                const dataCell = document.createElement('td');
-                dataCell.textContent = user[key];
-                rowEl.appendChild(dataCell);
-            };
-            tbody.appendChild(rowEl);
-        })
-    // }
+        for (let key of keys) {
+            const dataCell = document.createElement('td');
+            dataCell.textContent = user[key];
+            rowEl.appendChild(dataCell);
+        };
+        tbody.appendChild(rowEl);
+    })
     buildRow();
 }
-
 
 /////////////////BUILD HIGHEST OF[?] DATA ROW\\\\\\\\\\\\\
 
 const maxAge = () => users.reduce((prev, curr) => (prev.age > curr.age) ? prev : curr)
 const maxHeight = () => users.reduce((prev, curr) => (prev.height > curr.height) ? prev : curr)
 const maxSkill = () => users.reduce((prev, curr) => (prev.codingSkill > curr.codingSkill) ? prev : curr)
-//Problem with sorting. If String is between Numbers, togglesorting brakes. Skill switches when toggleSorting by any String. 
+
 function buildRow() {
     const lastRowEl = document.createElement('tr');
 
     for (let key of keys) {
         const dataCellEl = document.createElement('td');
         switch (key) {
-            case 'age':
-                dataCellEl.textContent = maxAge().age;
-                break;
-            case 'height':
-                dataCellEl.textContent = maxHeight().height;
-                break;
-            case 'codingSkill':
-                dataCellEl.textContent = maxSkill().codingSkill;
-                break;
+            case 'age': dataCellEl.textContent = maxAge().age; break;
+            case 'height': dataCellEl.textContent = maxHeight().height; break;
+            case 'codingSkill': dataCellEl.textContent = maxSkill().codingSkill; break;
         }
         lastRowEl.appendChild(dataCellEl);
     }
@@ -79,14 +66,16 @@ function buildRow() {
 
 const inputName = document.getElementById('inputName').value;
 const inputLastName = document.getElementById('inputLastName').value;
-const inputAge = document.getElementById('inputAge');
+const inputAge = document.getElementById('inputAge').value;
 const inputGender = document.getElementById('inputGender').value;
-const inputHobby = document.getElementById('inputHobby');
+const inputCity = document.getElementById('inputCity').value;
+const inputWorkplace = document.getElementById('inputWorkplace').value;
+const inputHobby = document.getElementById('inputHobby').value;
 const inputHeight = document.getElementById('inputHeight').value;
 const inputSkill = document.getElementById('inputSkill').value;
 
 /////////////////ADD TO LIST\\\\\\\\\\\\\
-// DOES NOT WORK WITH BUTTONS. CONST TO LET DOES NOT HELP
+//IF INCLUDES NOT WORKING AND NEED CLEAR INPUTS AFTER ADD
 
 function addToList() {
     let addUser = [
@@ -95,24 +84,36 @@ function addToList() {
             lastName: inputLastName,
             age: inputAge,
             gender: inputGender,
+            city: inputCity,
+            workplace: inputWorkplace,
             hobby: inputHobby,
             height: inputHeight,
             codingSkill: inputSkill,
         },
     ];
     console.log(addUser);
-    users.push.apply(users, addUser);
-    addUser.value = '';
+    users.map((user) => {
+        if (user == addUser) {
+            alert('This User is already in the list')
+        } else if (addUser == '') {
+            alert('Enter info of the person in order to add to the list')
+        } else {
+            users.push.apply(users, addUser);
+        }
+    });
+    console.log(users)
+    addUser = '';
     renderTbodyData(users);
 }
 
 /////////////////SORTING\\\\\\\\\\\\\\
+//ONLY SORTS WITH STRING IF ALL NUMBERS ARE IN "" ("20", "10") IF A NUMBER DOES NOT HAVE "" (20, 10) DOES NOT WORK WITH SORT BY ALPH
 
 function sortbyAlph(param) {
-    order = !order;
+    if (param === 'codingSkill') { order = order; } else { order = !order; }
     users.sort(function (a, b) {
-        let x = a[param].toLowerCase();
-        let y = b[param].toLowerCase();
+        let x = a[param]; //.toLowerCase()
+        let y = b[param]; //.toLowerCase()
         if (order) {
             return x == y ? 0 : x > y ? 1 : -1; // if Name is the same as the other one, don't sort // if x(first name) is higher in alphabet -sort //else -1??
         } else {
@@ -123,6 +124,9 @@ function sortbyAlph(param) {
 }
 
 function sortbyNumber(param) {
+    if (param === 'codingSkill') {
+        sortbyAlph('codingSkill');
+    }
     order = !order;
     users.sort(function (a, b) {
         const x = a[param];
@@ -138,3 +142,21 @@ renderTbodyData(users);
 
 /////////////////FETCH FROM API\\\\\\\\\\\\\
 
+// let test = ['drake', 'babe', '2', 'crack'];
+// test.map((tes) => {
+//     console.log(tes.toLowerCase())
+// })
+
+
+
+///VERY USEFUL .FOREACH\\\\
+// ["Bilbo", "Gandalf", "Nazgul"].forEach((item, index, array) => {
+//     alert(`${item} is at index ${index} in ${array}`);
+//   });
+///Testing typeof\\\
+// let testest = [20, '20', 'babe', 15, "4"]
+// testest.map((test) => {
+//     let allstrings = (typeof test == 'string')
+//     console.log(allstrings)
+
+// });

@@ -50,11 +50,13 @@ let objects =
 // console.log(arrayStrings.map((num, i) => num = i));
 // /////////////13\\\\\\\\\\\\
 // let arrayNums = [200, 40, 15, 3, 2, 8, -600]
-// let evens = arrayNums.filter(function (x) {
+// let odds = arrayNums.filter((number) => number % 2 == 1); //filter odds
+// let evens = arrayNums.filter(function (x) {         //filter evens
 //     if (x % 2 === 0 || x === 0) {
 //         return x;
 //     }
 // })
+// console.log(odds);
 // console.log(evens);
 // /////////////14\\\\\\\\\\\\
 // function myChoice(param) {
@@ -66,9 +68,10 @@ let objects =
 // let Nums = [5, 4, 6, 8, 1];
 
 // function arraySum(param) {
-//     return sum = param.reduce((b, a) => b + a, 0);
+//     console.log(param.reduce((a, b) => a + b))
 // }
-// console.log(arraySum(array)); //29 or 24
+// arraySum(array); //29
+// arraySum(Nums);  //24
 /////////////18\\\\\\\\\\\\
 // objects.map((object) =>{
 //     console.table(object)
@@ -106,21 +109,15 @@ function inputLog() {
     let hasValue = input.value && !list.includes(input.value); //27
     if (hasValue) {
         console.log(input.value);  //23
-        list.push(input.value);  //...rest = 24
+        list.push(input.value);  //...rest
         content.innerHTML = '';
-        updateLog();
+        for (let i = 0; i < list.length; i++) {
+            content.innerHTML += `<li>${list[i]}</li>`
+            // const listEl = document.createElement('p');  //Alternative
+            // listEl.textContent = list[i];
+            // content.appendChild(listEl);
+        }
     } else {
         alert('You have entered the same value or it is empty')
     }
 }
-function updateLog() {
-    for (let i = 0; i < list.length; i++) {
-        content.innerHTML += `<li>${list[i]}</li>`
-        // const listEl = document.createElement('p');  //Alternative
-        // listEl.textContent = list[i];
-        // content.appendChild(listEl);
-    }
-
-}
-/////////////25\\\\\\\\\\\\\ nieko nesupratau
-/////////////26\\\\\\\\\\\\\ nieko nesupratau

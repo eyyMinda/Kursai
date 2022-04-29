@@ -14,10 +14,10 @@
     <section class="container">
         <h1>Start wars table</h1>
         <button onclick="renderTableData(characters)">All characters</button>
-        <button onclick="renderTableData(charactersWithGreaterMassThan80)">Mass greater than 80</button>
-        <button onclick="renderTableData(charactersWithLessHeightThan180)">Mass height lesser than 180</button>
-        <button onclick="renderTableData(charatersMale)">Male characters</button>
-        <button onclick="renderTableData(charatersWithBlueEyes)">Characters with blue eyes</button>
+        <button onclick="renderTableData(charsMale())">Males</button>
+        <button onclick="renderTableData(charsSmaller180())">Height lesser than 180</button>
+        <button onclick="renderTableData(charsWeighMore80())">Mass greater than 80</button>
+        <button onclick="renderTableData(charsBlueEyes())">Blue eyes</button>
         <table class="table">
             <thead>
                 <tr>
@@ -33,6 +33,7 @@
 
             </tbody>
         </table>
+        <ul id="planetListing"></ul>
         <section class="container m-3">
             <button class="btn btn-secondary" onclick="addCharacters(previousPage)">Previous</button>
             <button class="btn btn-secondary" onclick="addCharacters(nextPage)">Next</button>
