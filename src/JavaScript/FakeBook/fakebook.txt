@@ -1,0 +1,49 @@
+Is randomuser.me norime issitraukti 100 zmoniu
+
+Susikurti naujus html ir js failus
+
+js faile, naudojant fetch issitraukti 100 zmoniu ir prisiskirti juos kintamajam
+_______________________________________________________________________________
+
+Susikurti kortele (Rekomenduoju naudot bootstrap)
+
+kurioje atsivaizduos zmogaus vardas, pavarde, amzius ir gyvenamoji salis bei miestas
+_______________________________________________________________________________
+
+I kortele prideti zmogaus nuotrauka (ateina is duomenu)
+_______________________________________________________________________________
+
+Suskurti nauja elementa (feed)
+
+Jame turi atsivaizduoti bent 6 postai (gali vel buti korteles)
+
+Kur matysis vis kito zmogaus
+
+ * thumbnail (nuotrauka)
+ * vardas
+ * pavarde
+
+ir ju "Posto contentas" veiklas kuri trauksim is kito API (https://www.boredapi.com/documentation)
+
+Content:
+
+ * Veiklos apibendrinimas
+ * Veiklos tipas
+ * Veiklos dalyviu kiekis
+
+__________________________________________________________________________________
+
+Prie "posto" prideti mygtuka "join activity"
+
+paspaudus ji, kazkur turi atsirasti "kambario" elementas kuriame
+
+Rodysit sarasa zmoniu:
+
+ * Savo, Zmogaus ant kurio posto paspaudete "join activity"
+ * Kas sekunde, 5 sekundes sarasas pasipildys vienu random zmogum is jusu people array
+
+Dar kazkur "kambario" elemente turi atsivaizduoti veiklos apibendrinimas ir tipas
+
+
+ 
+

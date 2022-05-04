@@ -1,5 +1,7 @@
 const cookieDisplay = document.getElementById('cookieDisplay');
 const upgradesBox = document.getElementById('upgradesBox');
+const momUpgrade = document.getElementById('momUpgrade');
+const grannyUpgrade = document.getElementById('grannyUpgrade');
 let cookieCount = getCookie('cookieCount') || 0;
 let momCount = getCookie('momCount') || 0;
 let grannyCount = getCookie('grannyCount') || 0;
@@ -45,7 +47,7 @@ function buyHelper(helper) {
         setCookie('cookieCount', cookieCount);
         setCookie('momCount', momCount);
         usingHelper();
-        console.log('yes its mom')
+        console.log('Bought mom')
 
     } else if (helper == 'granny' && cookieCount >= 500) {
         cookieCount = Number(cookieCount) - 500;
@@ -54,17 +56,17 @@ function buyHelper(helper) {
         setCookie('cookieCount', cookieCount);
         setCookie('grannyCount', grannyCount);
         usingHelper();
-        console.log('yes its granny')
+        console.log('Bought granny')
 
     } else {
-        console.log('no conditions met')
+        console.log('no conditions met for buy')
     }
 }
 //////////////Set a Helper to Work
 function usingHelper() {
     if (momCount) {
         if (momInterval) clearInterval(momInterval);
-       momInterval = setInterval(() => speedOfHelper('mom'), 1000);
+        momInterval = setInterval(() => speedOfHelper('mom'), 1000);
         console.log('moms:', momCount)
     }
     if (grannyCount) {
@@ -72,9 +74,6 @@ function usingHelper() {
         grannyInterval = setInterval(() => speedOfHelper('granny'), 1000);
         console.log('grannies:', grannyCount)
     }
-    // if (!momCount && !grannyCount) {
-    //     clearInterval(momInterval, grannyInterval)
-    // }
 
 }
 //////////////Set Helpers Working Speed
@@ -89,6 +88,12 @@ function speedOfHelper(helper) {
             break
         default: console.log('speed no work')
     }
+    if (momCount >= 1) {
+        momUpgrade.style.visibility = 'visible';
+    }
+    if (grannyCount >= 1) {
+        grannyUpgrade.style.visibility = 'visible';
+    }
     cookieDisplay.style.color = ('#0d6efd')
     cookieDisplay.textContent = cookieCount;
     setCookie('cookieCount', cookieCount);
@@ -96,7 +101,8 @@ function speedOfHelper(helper) {
 
 /////////////Upgrades
 
-if(grannyCount>+ 10) {
-////listEl[0] visible
+function buyUpgrade(helperUpgrade) {
+    
 }
+
 usingHelper()

@@ -19,21 +19,26 @@
 
 <body class="bg-secondary">
     <section class="container shadow-lg">
-        <div class="row mt-4">
+        <h1 class="text-center text-primary">Clicker</h1>
+        <div class="row mt-2">
             <img src="./assets/cookie.png" alt="" class="col-6" onclick="increaseCookieCount()">
             <div id="cookieDisplay"
-                class="text-center text-primary shadow-lg fs-1 col-2 align-self-center user-select-none">1</div>
+                class="text-center text-primary shadow-lg fs-1 col-2 align-self-center user-select-none">0</div>
             <div id="upgradesBox" class="bg-dark text-primary col">
-                <h1 class="text-center">Upgrades Box</h1>
-                <ul id="upgrades">
-                    <!--Create <li> el of an upgrade-->
-                </ul>
-                <ul>
-                    <li><button class="btn shadow-lg text-primary" onclick="buyHelper('mom')"><img
-                                src="./assets/mom.png" height="50px"> 50c Use Mom</button></li>
-                    <li><button class="btn shadow-lg text-primary" onclick="buyHelper('granny')"><img
-                                src="./assets/grandma.png" height="50px"> 500c Use Granny</button></li>
-                </ul>
+                <h2 class="text-center">Upgrades Box</h2>
+                <div class="row">
+                    <ul class="col">
+                        <!--Create <li> el of an upgrade-->
+                        <button class="btn shadow-lg text-primary p-3" style="visibility: hidden;" id="momUpgrade">momUpgrade</button>
+                        <button class="btn shadow-lg text-primary p-3" style="visibility: hidden;" id="grannyUpgrade">grannyUpgrade</button>
+                    </ul>
+                    <ul class="col">
+                        <li><button class="btn shadow-lg text-primary" onclick="buyHelper('mom')">50c <img
+                                    src="./assets/mom.png" height="50px"> Use Mom</button></li>
+                        <li><button class="btn shadow-lg text-primary" onclick="buyHelper('granny')">500c <img
+                                    src="./assets/grandma.png" height="50px"> Use Granny</button></li>
+                    </ul>
+                </div>
             </div>
         </div>
         <button class="row btn bg-danger m-5" onclick="cookieReset()">Reset All</button>
