@@ -13,13 +13,24 @@
 </head>
 
 <body class="container text-center bg-black text-primary">
-    <div class="bg-secondary p-4">
+    <div class="bg-secondary p-2 border border-secondary">
         <button class="btn bg-info" onclick="getUsers('users')">Users</button>
-        <button class="btn bg-info" onclick="getUsers('feed')">Feed</button>
+        <button class="btn bg-info" onclick="getUsers('feed')">Rooms</button>
+        <div class="input-group m-2">
+            <span class="input-group-text bg-secondary text-black">Filter Users</span>
+            <input class="bg-secondary form-control" id="searchInput">
+        </div>
+
     </div>
-    <div id="Box" class="row"></div>
-    
-    <!-- <div id="activityBox" class="col"></div> -->
+    <div class="row p-2">
+        <div id="myBox" class="col-3"></div>
+        <div id="expand"><button class="btn bg-info m-2" onclick="roomCreation()">Create a
+                room</button></div>
+        <div id="Box" class="col-9 row"></div>
+    </div>
+
+
+    <div id="activityBox" class="col"></div>
 </body>
 
 </html>
