@@ -33,17 +33,34 @@ Content:
 
 __________________________________________________________________________________
 
-Prie "posto" prideti mygtuka "join activity"
+Prideti nauja mygtuka, "create activity"
 
 paspaudus ji, kazkur turi atsirasti "kambario" elementas kuriame
 
 Rodysit sarasa zmoniu:
 
- * Savo, Zmogaus ant kurio posto paspaudete "join activity"
- * Kas sekunde, 5 sekundes sarasas pasipildys vienu random zmogum is jusu people array
+ * Save
+ * Kas 5 sekundes sarasas pasipildys vienu random zmogum is jusu people array
 
 Dar kazkur "kambario" elemente turi atsivaizduoti veiklos apibendrinimas ir tipas
 
+__________________________________________________________________________________
 
- 
+Susikurti "Search" inputa htmle
 
+I input vedant teksta, turetu atsirasti sarasas is people array kuriu vardai arba pavardes yra panasus i vedama teksta
+
+Jei nieko neranda turetu rasyti no results found
+
+Jei isvalom input, suggestion sarasas turetu dingi
+
+___________________________________________________________________________________
+
+Sukurti "Chat" mygtuka
+
+Paspaudus ji, jus ir random zmogu imes i chat room kuriame bus input ir elementas jusu zinutem atvaizduoti
+
+kazka parasius i input ir paspaudus enter
+    * Atsivaizduos jusu zinute
+    * Po sekundes atvaizduosit atsakyma is kito zmogaus chate (Galit susikurt atsakymu array arba fetchint activity ir idet ja i zinute)
+___________________________________________________________________________________

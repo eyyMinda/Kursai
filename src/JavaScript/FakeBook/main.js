@@ -1,6 +1,6 @@
 const myBox = document.getElementById('myBox');
 const Box = document.getElementById('Box');
-const expand = document.getElementById('expand');
+const myRoom = document.getElementById('expand');
 
 const usersUrl = 'https://randomuser.me/api/';
 const activityUrl = 'http://www.boredapi.com/api/activity/';
@@ -8,11 +8,62 @@ const users100 = '?results=21';
 let users;
 let me;
 
-//search
 
-const input = document.getElementById('searchInput')
+function getUsers(type) {
+    fetch(usersUrl + users100).then(response => response.json()).then(data => {
+        users = data.results;
+        me = data.results[20]
 
-//create an activity room
+        if (type == 'users') {
+            renderUsers(users)
+        } else if (type == 'feed') {
+            renderFeed(users)
+        }
+        renderMe(me)
+        return users;
+    });
+}
+
+getUsers('users')
+
+///ChatBox
+function openChat() { //TINGIU DARYT
+    const chatbtn = document.createElement('button')
+    chatbtn.classList.add('btn')
+    chatbtn.classList.add('bg-primary')
+    chatbtn.classList.add('text-danger')
+    chatbtn.classList.add('fixed-bottom')
+    chatbtn.textContent = 'Open messages'
+    Box.appendChild(chatbtn)
+    // chatbtn.innerHTML += `
+    // <div class="panel panel-default fixed-bottom bg-light text-dark" style="width: 500px; height: 100px">InsidePanel
+    //     <div class="panel-body">Test resizable
+    //     </div>
+    //     <div class="panel-footer bg-primary">Footer</div>
+    // </div>`
+}
+///Search
+let input = document.getElementById('searchInput')
+let searchField = document.getElementById('searchField')
+
+input.addEventListener('keyup', (e) => {
+    const string = e.target.value
+    const filteredUsers = users.filter((user) => {
+        if (string != '') {
+            if (user.name.first.toLowerCase().includes(string) || user.name.last.toLowerCase().includes(string)) {
+                return user
+            } else { searchField.innerHTML = '' }
+        } else { searchField.innerHTML = '' }
+    })
+    filteredUsers.map(user => {
+        personImg = user.picture.thumbnail
+        person = user.name.first + ' ' + user.name.last
+        searchField.innerHTML += `<li class="list-group-item"><img src='${personImg}'>${person}</li>`
+
+    })
+})
+
+//Create an activity room
 let joinInterval;
 const queryString = window.location.search;
 const urlParams = new URLSearchParams(queryString);
@@ -24,35 +75,9 @@ if (paramType) {
         roomType = "https://www.boredapi.com/api/activity?type=" + paramType
 }
 
-function getUsers(type) {
-    fetch(usersUrl + users100)
-        .then(response => response.json())
-        .then(data => {
-            users = data.results;
-            me = data.results[20]
-            renderMe(me)
-
-            if (type == 'users') {
-                renderUsers(users)
-                console.log('userss')
-            } else if (type == 'feed') {
-                renderFeed(users)
-                console.log('feeed')
-            }
-            return users;
-        });
-}
-
-getUsers('users')
-
-input.addEventListener('keyup', function() {
-    //blablabla einu miegot its 4am
-})
-
-
 function roomCreation() {
-    expand.innerHTML = ''
-    expand.innerHTML += `
+    myRoom.innerHTML = ''
+    myRoom.innerHTML += `
     <form action="./index.html" method="GET">
         <label for="activity-select">Choose a type of activity:</label>
          <select class="bg-dark m-2" name="type" id="activity-select">
@@ -76,7 +101,7 @@ function renderMe(me) {
     myBox.innerHTML += `<div class="col border"><img src="${me.picture.large}"><h3>${me.name.first} ${me.name.last}</div>`
     ///RENDER MY ROOM
     if (roomType) {
-        expand.style.display = 'none'
+        myRoom.style.display = 'none'
         console.log('roomType')
         fetch(roomType).then(response => response.json()).then((data) => {
             myBox.innerHTML += `<ul class="border list-group">
@@ -85,21 +110,21 @@ function renderMe(me) {
                 <li class="list-group-item bg-dark text-primary">Participants required: <b>${data.participants}</b></li>
                 <li class="list-group-item bg-dark text-primary" id="usersJoined">Participants joined: <hr></li>
                 `
-                usersJoined = document.getElementById('usersJoined')
-                let i = 0;
-                joinInterval = setInterval(() => {
-                    const participant = users[Math.floor(Math.random() * 100)]
-        
-                    usersJoined.innerHTML += `<span>
+            usersJoined = document.getElementById('usersJoined')
+            let i = 0;
+            joinInterval = setInterval(() => {
+                const participant = users[Math.floor(Math.random() * 100)]
+
+                usersJoined.innerHTML += `<li class="list-group-item bg-dark text-primary">
                     <img src="${participant.picture.thumbnail}">
                     ${participant.name.first} ${participant.name.last}
-                    </span><br>`
-                    i++
-                    if (i == 4) clearInterval(joinInterval)
-                }, 2000)
+                    </li>`
+                i++
+                if (i == 4) clearInterval(joinInterval)
+            }, 2000)
         })
     }
-    myBox.append(expand)
+    myBox.append(myRoom)
 
 }
 
@@ -150,10 +175,19 @@ function renderFeed(array) {
 
         Userinfo.appendChild(image)
         Userinfo.appendChild(Name)
-        fetch(activityUrl)
-            .then(response => response.json())
+
+
+        const load = document.createElement('div')
+        load.textContent = 'Loading...'
+        Userinfo.appendChild(load)
+
+        fetch(activityUrl).then(response => response.json())
             .then(data => {
-                Userinfo.innerHTML += `<h5 class="col-5 p-4">${data.activity}</h5><div class="col p-2"><p>required participants: <b>${data.participants}</b></p>type of activity: <b>${data.type}</div>`
+                let addActivity = document.createElement('span')
+                addActivity.classList.add('row')
+                addActivity.classList.add('col')
+                addActivity.innerHTML = `<h5 class="col p-4">${data.activity}</h5><div class="col p-2"><p>required participants: <b>${data.participants}</b></p>type of activity: <b>${data.type}</div>`
+                load.parentNode.replaceChild(addActivity, load);
             })
 
         Box.appendChild(Userinfo)
