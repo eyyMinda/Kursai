@@ -95,6 +95,7 @@ function renderFeed(array) {
     })
 }
 
+
 function getUsers(type) {
     fetch(usersUrl + users100).then(response => response.json()).then(data => {
         users = data.results;
