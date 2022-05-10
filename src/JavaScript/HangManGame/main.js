@@ -34,10 +34,9 @@ function listWord() {
 function anotherOne() {
     window.location.reload();
 }
-
+const controller = new AbortController();
 addEventListener(('keyup'), (e) => {
-    if (String.fromCharCode(e.which).match(/[a-z]/i)) {
-
+    if (String.fromCharCode(e.which).match(/[a-z]/i)) { //Only letters key.which(65-90) (But numpad still works...)
 
         let correct = 0;
         let key = e.key.toLowerCase()
@@ -53,17 +52,22 @@ addEventListener(('keyup'), (e) => {
                 }
             }
         }
+        //Lose 1 life
         if (correct != 1) {
-            left--;
-            console.log('Decrementing')
-            tries.innerHTML += `<span>${key} </span>`
+            if (!tries.innerHTML.includes(key)) {
+                left--;
+                tries.innerHTML += `<span>${key} </span>`
+            }
             correct = 0
         }
-
-        count++;
+        //Check how many letters guessed
+        if (correct == 1) {
+            count++;
+            wrong.innerHTML = 'You have guessed ' + count + ' letters...';
+        }
         updateLives(left)
-        wrong.innerHTML = 'You have guessed ' + count + ' times...';
         answer.innerHTML = guessed.join(' ');
+        //Check if Lost
         if (left < 0) {
             console.log('noob')
             wrong.innerHTML = 'noob'
@@ -71,10 +75,12 @@ addEventListener(('keyup'), (e) => {
             <button class="btn border" onclick='anotherOne()'>Try Another One</button>`
         }
         console.log(word)
-        console.log(guessed)
-        if (word === guessed) { //Kas Yra???
+        //Check if Won
+        if (word.join('') === guessed.join('')) {
             console.log('You Won!')
-            removeEventListener('keyup', (e))
+            lives.innerHTML = `<i class="fa-solid fa-champagne-glasses m-4"> You Won</i><br>
+            <button class="btn border" onclick='anotherOne()'>Try Another One</button>`
+            controller.abort()
         }
     }
-})
+}, { signal: controller.signal })
