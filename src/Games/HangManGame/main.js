@@ -34,7 +34,6 @@ function anotherOne() {
 const controller = new AbortController();
 addEventListener(('keyup'), (e) => {
     if (String.fromCharCode(e.which).match(/[a-z]/i)) { //Only letters key.which(65-90) (But numpad still works...)
-
         let correct = 0;
         let key = e.key.toLowerCase()
         for (i = 0; i < word.length; i++) {
@@ -47,7 +46,7 @@ addEventListener(('keyup'), (e) => {
                     console.log('Guessing same key')
                     correct = 1;
                 }
-            }
+            } 
         }
         //Lose 1 life
         if (correct != 1) {
