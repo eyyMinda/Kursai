@@ -1,5 +1,3 @@
-console.clear();
-
 const myBox = document.getElementById('myBox');
 const Box = document.getElementById('Box');
 const myRoom = document.getElementById('expand');
@@ -22,7 +20,11 @@ function getRandomInt(min, max) {
 function renderMe(me) {
     myBox.innerHTML = ''
     myBox.innerHTML += `<div class="col border"><img src="${me.picture.large}" class="border border-primary"><h3>${me.name.first} ${me.name.last}</div>`
-    ///RENDER MY ROOM
+    renderRoom()
+    myBox.append(myRoom)
+}
+
+function renderRoom() {
     if (roomType) {
         myRoom.style.display = 'none'
         fetch(roomType).then(response => response.json()).then((data) => {
@@ -47,9 +49,7 @@ function renderMe(me) {
             }, getRandomInt(1, 11) + '000')
         })
     }
-    myBox.append(myRoom)
 }
-
 function renderUsers(array) {
     Box.textContent = ''
     array.map((user) => {
@@ -100,11 +100,9 @@ function getUsers(type) {
     fetch(usersUrl + users100).then(response => response.json()).then(data => {
         users = data.results;
         me = data.results[20]
-
-        if (type == 'users') {
-            renderUsers(users)
-        } else if (type == 'feed') {
-            renderFeed(users)
+        switch (type) {
+            case 'users': renderUsers(users)
+            case 'feed': renderFeed(users)
         }
         renderMe(me)
         return users;
@@ -127,14 +125,12 @@ let randName;
 
 function openChat() {
     if (messenger.style.visibility === "hidden") {
-        messenger.style.visibility = "visible";
-        messenger.style.height = '550px'
+        messenger.style = `visibility: visible; height: 550px`
         btnChat.textContent = 'Close Messenger'
         Chat.style.bottom = '0px'
 
     } else {
-        messenger.style.visibility = "hidden";
-        messenger.style.height = '0'
+        messenger.style = `visibility: hidden; height: 0`
         btnChat.textContent = 'Open Messenger'
         Chat.style.bottom = '-30px'
     }
@@ -155,7 +151,6 @@ function addRandomChatter() {
     }
     msgArea.innerHTML += `<p class='response'>Hi there ${me.name.first}!</p>`
 }
-
 
 //ChatListeners
 {
@@ -195,7 +190,6 @@ function getResponse() {
     fetch(responseUrl)
         .then(response => response.json())
         .then(data => {
-            // res = data.trim(5)
             console.log(data[0])
             msgArea.innerHTML += `<p class='response'>${data}</p>`
         })
