@@ -48,11 +48,11 @@ window.addEventListener('DOMContentLoaded', () => {
         gameWon = false;
         for (let i = 0; i <= 7; i++) { //map all conditions
             const winCondition = winningConditions[i]; //single condition that extends to 3 parts:
-            const a = board[winCondition[0]]; 
-            const b = board[winCondition[1]];
-            const c = board[winCondition[2]];
+            const a = board[winCondition[0]];   //First(of condition array [0,1,2]) index number of tile which is [0, ...]
+            const b = board[winCondition[1]];   //Second index number [.., 1,..]
+            const c = board[winCondition[2]];   //Third index number [..., 2]
             if (a === '' || b === '' || c === '') { continue; } //continue is needed for if you want to check more than one tile
-            if (a === b && b === c) { gameWon = true; break; }
+            if (a === b && b === c) { gameWon = true; break; } // Checks by winCondition wether each of 3 tiles is the same string ex.('X' or 'O')
         }
         if (gameWon) { endResult(currentPlayer === 'X' ? XWon : OWon); isGameActive = false; return; }
         if (!board.includes('')) endResult(tie)
