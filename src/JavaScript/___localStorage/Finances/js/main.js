@@ -57,7 +57,6 @@ function renderTable(entries) {
             visible.push(user)
         return true;
     });
-    console.log(visible)
     sumVisible = visible.reduce((a, b) => Number(a) + Number(b.amount), 0)
     sumTotal = list.reduce((a, b) => Number(a) + Number(b.amount), 0)
     renderTotal()
