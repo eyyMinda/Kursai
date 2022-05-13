@@ -1,0 +1,1 @@
+.match(/\b(\w+)\b/g) //Seperate a string of multiple words by one word \\for array
