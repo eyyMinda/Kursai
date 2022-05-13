@@ -78,6 +78,7 @@ function renderHomeworldData(data) {
 const getCharacterPropertySum = (property) =>
     characters.reduce((prev, current) => prev + Number(current[property]), 0);
 const getCharacterNamesLengthSum = () => characters.reduce((prev, current) => prev + current.name.length, 0);
+
 function buildTotalRow() {
     const rowElement = document.createElement('tr');
 

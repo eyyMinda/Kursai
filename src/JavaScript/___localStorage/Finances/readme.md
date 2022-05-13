@@ -25,5 +25,5 @@ Sukurti finansu sekimo puslapi
 * Vieno lenteles puslapio "total" eilute, kur matysis bendra suma (amount stulpelio); \\
 * Visu "total" eilementas, kur matysis bendra suma visu duomenu (amount); \\
 * Puslapiavimas, rodome tik pirmus 10 irasu \\
- - Po lentele rodome rodykles (mygtukus) vaikscioti tarp duomenu
- - prie rodykliu rodome dabartini puslapi ir puslapiu kieki tarkim (1-23) (dabartinis-isviso);
+ - Po lentele rodome rodykles (mygtukus) vaikscioti tarp duomenu \\
+ - prie rodykliu rodome dabartini puslapi ir puslapiu kieki tarkim (1-23) (dabartinis-isviso); \\

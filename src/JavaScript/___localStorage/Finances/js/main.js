@@ -14,23 +14,30 @@ let list = [{
     'delBtn': ''
 },];
 getLocal()
-
 let keys = Object.keys(list[ind])
-//Row of Sum\\
-let sumVisible;
-let sumTotal;
-
+//Sum and Pages
+let sumVisible, sumTotal, pages, startIndex, endIndex;
+let page = 1
+let limit = 10
+//Visible list
 let visible = [];
+
 renderTable(list)
+function nextPage() { page++; if (page > pages) page = pages; renderTable(list, page) }
+function prevPage() { page--; if (page < 1) page = 1; renderTable(list, page) }
 
 function renderTable(entries) {
     getLocal()
     tbody.innerHTML = '';
     visible = []
+    pages = parseInt(list.length / limit) + 1;
+    startIndex = (Number(page) - 1) * Number(limit)
+    endIndex = Number(page) * Number(limit)
+
+    entries = entries.slice(Number(startIndex), Number(endIndex))
     entries.every((user, i) => {
-        if (i > 9) return false;
         user.number = i + 1
-        let n, am
+        let n, am;
         n = user.name
         am = user.amount
 
@@ -46,25 +53,24 @@ function renderTable(entries) {
         visible.push(user)
         return true;
     });
-
     sumVisible = visible.reduce((a, b) => Number(a) + Number(b.amount), 0)
-    sumTotal = entries.reduce((a, b) => Number(a) + Number(b.amount), 0)
+    sumTotal = list.reduce((a, b) => Number(a) + Number(b.amount), 0)
     renderTotal()
 }
 
 function renderTotal() {
-    const totalRowEl = document.createElement('tr');
+    const RowEl = document.createElement('tr');
 
     for (let key of keys) {
-        const cellEl = document.createElement('td');
-        cellEl.classList.add('bg-light')
+        const cellEl = document.createElement('td'); cellEl.classList.add('bg-light');
         switch (key) {
+            case 'number': cellEl.textContent = page + '/' + pages; break;
             case 'amount': cellEl.textContent = sumVisible; break;
             case 'delBtn': cellEl.textContent = 'Total: ' + sumTotal; cellEl.classList.add('fw-bold'); break;
         }
-        totalRowEl.appendChild(cellEl);
+        RowEl.appendChild(cellEl);
     }
-    tbody.appendChild(totalRowEl);
+    tbody.appendChild(RowEl);
 }
 
 submitBtn.addEventListener(('click'), e => {
