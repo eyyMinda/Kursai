@@ -27,7 +27,7 @@ function exitEdit() {
 
 function deleteUser(i) {
     list.splice(i, 1)
-    if (i == ind) exitEdit(); list.splice(i, 1) //if deleted item is the one that's being edited
+    if (i == ind) exitEdit(); list.splice(i, 1) //if deleted item is the one that's being edited || Let delete index: 0
     setLocal()
     getLocal()
     renderTable(list)
