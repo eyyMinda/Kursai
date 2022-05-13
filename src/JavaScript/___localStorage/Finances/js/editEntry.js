@@ -5,8 +5,7 @@ const editAmount = document.getElementById('editAmount')
 
 function editUser(n, am, i) {
     ind = Number(i)
-    let entry = 'entry' + i
-    console.log(entry)
+    let entry = 'entry' + i //<tr> of entry\\For replace
 
     table.parentNode.insertBefore(editPop, table)
     editPop.style.visibility = 'visible'

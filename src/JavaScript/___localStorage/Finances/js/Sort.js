@@ -15,6 +15,7 @@ function sortbyAlph(param) {
 }
 
 function sortbyNumber(param) {
+    console.log(visible)
     order = !order;
     visible = visible.sort(function (a, b) {
         let x, y;

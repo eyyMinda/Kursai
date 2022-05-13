@@ -23,18 +23,22 @@ let limit = 10
 let visible = [];
 
 renderTable(list)
-function nextPage() { page++; if (page > pages) page = pages; renderTable(list, page) }
-function prevPage() { page--; if (page < 1) page = 1; renderTable(list, page) }
-
-function renderTable(entries) {
-    getLocal()
-    tbody.innerHTML = '';
-    visible = []
+function nextPage() { page++; if (page > pages) page = pages; renderTable(list) }
+function prevPage() { page--; if (page < 1) page = 1; renderTable(list) }
+function decidePage(){
     pages = parseInt(list.length / limit) + 1;
     startIndex = (Number(page) - 1) * Number(limit)
     endIndex = Number(page) * Number(limit)
+}
 
-    entries = entries.slice(Number(startIndex), Number(endIndex))
+function renderTable(entries) {
+    getLocal()
+    decidePage()
+    tbody.innerHTML = '';
+    if(visible != entries){
+        entries = entries.slice(Number(startIndex), Number(endIndex))
+    }
+    visible = []
     entries.every((user, i) => {
         user.number = i + 1
         let n, am;
@@ -50,9 +54,10 @@ function renderTable(entries) {
             <td><button class='btn bg-primary' onclick="editUser('${n}',' ${am}',' ${i}')" id='editEntry'>Edit</button></td>
             <td class='text-center'><button class='btn bg-danger' onclick="deleteUser('${i}')">Remove</button></td>
             </tr>`
-        visible.push(user)
+            visible.push(user)
         return true;
     });
+    console.log(visible)
     sumVisible = visible.reduce((a, b) => Number(a) + Number(b.amount), 0)
     sumTotal = list.reduce((a, b) => Number(a) + Number(b.amount), 0)
     renderTotal()
@@ -71,34 +76,4 @@ function renderTotal() {
         RowEl.appendChild(cellEl);
     }
     tbody.appendChild(RowEl);
-}
-
-submitBtn.addEventListener(('click'), e => {
-    e.preventDefault();
-    if (!inputName.value) {
-        inputName.placeholder = 'Fill out this field!'; inputName.style.borderColor = 'red';
-    } else if (!inputAmount.value) {
-        inputAmount.placeholder = 'Fill out this field!'; inputAmount.style.borderColor = 'red';
-    } else {
-        list.push({ 'number': '', 'name': inputName.value, 'amount': inputAmount.value, 'dateadded': date, 'time': time, editBtn: '', delBtn: '' })
-        inputName.value = ''
-        inputAmount.value = ''
-        setLocal()
-        getLocal()
-        renderTable(list)
-    }
-})
-
-
-function setLocal() {
-    localStorage.setItem('list', JSON.stringify(list))
-}
-
-function getLocal() {
-    if (!localStorage.getItem('list') || localStorage.getItem('list') == '[]') {
-        console.log('Nothing saved in localStorage')
-        setLocal()
-    } else {
-        list = JSON.parse(localStorage.getItem('list'))
-    }
 }
