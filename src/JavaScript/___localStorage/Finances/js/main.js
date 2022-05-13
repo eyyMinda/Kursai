@@ -22,7 +22,6 @@ let sumTotal;
 
 let visible = [];
 renderTable(list)
-console.log(visible)
 
 function renderTable(entries) {
     getLocal()
