@@ -8,5 +8,17 @@ Font Awesome Link --
 <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta2/css/all.min.css" /> -->
 
 --------------------------------------------------------------------------------------------------------
+\\for Array only\\
+.match(/\b(\w+)\b/g) //Seperate a string of multiple words by one word
 
-.match(/\b(\w+)\b/g) //Seperate a string of multiple words by one word \\for array
+\\forEach layout\\
+['Bilbo', 'Gandalf', 'Nazgul'].forEach((item, index, array) => {
+    console.log(item, 'is at: ', index, 'in: ', array)
+})
+
+\\each first Letter toUpperCase with String.prototype.functionName \\
+String.prototype.toJadenCase = function () {
+        return this.split(' ').map(function(word){
+         return word.charAt(0).toUpperCase() + word.slice(1)}).join(' ')
+};
+//Use 'string'.toJadenCase()

@@ -25,7 +25,7 @@ renderTable(list)
 
 function nextPage() { page++; if (page > pages) page = pages; renderTable(list) }
 function prevPage() { page--; if (page < 1) page = 1; renderTable(list) }
-function decidePage(){
+function decidePage() {
     pages = parseInt(list.length / limit) + 1;
     startIndex = (Number(page) - 1) * Number(limit)
     endIndex = Number(page) * Number(limit)
@@ -35,7 +35,7 @@ function renderTable(entries) {
     getLocal()
     decidePage()
     tbody.innerHTML = '';
-    if(visible != entries){
+    if (visible != entries) {
         entries = entries.slice(Number(startIndex), Number(endIndex))
     }
     visible = []
@@ -54,7 +54,7 @@ function renderTable(entries) {
             <td><button class='btn bg-primary' onclick="editUser('${n}',' ${am}',' ${i}')" id='editEntry'>Edit</button></td>
             <td class='text-center'><button class='btn bg-danger' onclick="deleteUser('${i}')">Remove</button></td>
             </tr>`
-            visible.push(user)
+        visible.push(user)
         return true;
     });
     sumVisible = visible.reduce((a, b) => Number(a) + Number(b.amount), 0)
