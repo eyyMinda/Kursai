@@ -15,14 +15,14 @@ let list = [{
 },];
 getLocal()
 let keys = Object.keys(list[ind])
-//Sum and Pages
-let sumVisible, sumTotal, pages, startIndex, endIndex;
-let page = 1
-let limit = 10
 //Visible list
 let visible = [];
+//Sum and Pages
+let sumVisible, sumTotal, pages, startIndex, endIndex;
+let page = 1; limit = 10
 
 renderTable(list)
+
 function nextPage() { page++; if (page > pages) page = pages; renderTable(list) }
 function prevPage() { page--; if (page < 1) page = 1; renderTable(list) }
 function decidePage(){
