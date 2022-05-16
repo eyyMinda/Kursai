@@ -3,6 +3,7 @@ const editPop = document.getElementById('editPop')
 const editName = document.getElementById('editName')
 const editAmount = document.getElementById('editAmount')
 
+
 function editUser(n, am, i) {
     ind = Number(i)
     let entry = 'entry' + i //<tr> of entry\\For replace
@@ -11,10 +12,12 @@ function editUser(n, am, i) {
     editPop.style.visibility = 'visible'
     editName.value = n
     editAmount.value = Number(am)
+    if (n.type ==='income'){document.getElementById('inc').checked = true} else{document.getElementById('pay').checked = true}
 }
 
 function editSubmit() {
-    list[ind] = { 'name': editName.value, 'amount': editAmount.value, 'dateadded': date, 'time': time }
+    const editCheck = document.querySelector('input[name="editType"]:checked').value
+    list[ind] = { 'number': '', 'name': editName.value, 'amount': editAmount.value, 'type': editCheck, 'dateadded': date, 'time': time }
     exitEdit()
     setLocal()
 }

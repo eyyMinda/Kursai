@@ -2,12 +2,14 @@ const tbody = document.getElementById('tbody')
 const inputName = document.getElementById('inputName')
 const inputAmount = document.getElementById('inputAmount')
 const submitBtn = document.getElementById('submit')
+const typeBtn = document.getElementById('typeBtn')
 
 let ind = 0;  //index of entry
 let list = [{
     'number': '',
     'name': 'John Doe',
-    'amount': '0',
+    'amount': '420',
+    'type': 'payment',
     'dateadded': '',
     'time': '',
     'editBtn': '',
@@ -31,6 +33,24 @@ function decidePage() {
     startIndex = (Number(page) - 1) * Number(limit)
     endIndex = Number(page) * Number(limit)
 }
+let payments, incomes
+let isWhichType = true;
+
+typeBtn.onclick = () => {
+    payments = []
+    incomes = []
+    list.map((user) => {
+        if (isWhichType) {
+            if (user.type === 'payment') payments.push(user)
+            typeBtn.innerText = 'Show Incomes'
+            console.log(payments)
+        } else {
+            if (user.type === 'income') incomes.push(user)
+            typeBtn.innerText = 'Show Payments'
+        }
+    });
+    if (isWhichType) { renderTable(payments); isWhichType = false } else { renderTable(incomes); isWhichType = true }
+}
 
 function renderTable(entries) {
     getLocal()
@@ -44,17 +64,18 @@ function renderTable(entries) {
     visible = []
     entries.every((user, i) => {
         user.number = i + 1
-        let n, am;
-        n = user.name
+        let am, txtClr, lines;
         am = user.amount
+        if (user.type === 'income') { txtClr = 'text-success'; lines = '+' } else { txtClr = 'text-danger'; lines = '-' }
 
         tbody.innerHTML += `<tr id='entry${i}'>
             <th>${user.number}</th>
             <td>${user.name}</td>
-            <td>${user.amount}</td>
+            <td class='${txtClr}'>${lines}${user.amount}</td>
+            <td>${user.type}</td>
             <td>${user.dateadded}</td>
             <td>${user.time}</td>
-            <td><button class='btn bg-primary' href='#editPop' onclick="editUser('${n}',' ${am}',' ${i}')" id='editEntry'>Edit</button></td>
+            <td><button class='btn bg-primary' href='#editPop' onclick="editUser('${user.name}',' ${user.amount}',' ${i}')" id='editEntry'>Edit</button></td>
             <td class='text-center'><button class='btn bg-danger' onclick="deleteUser('${i}')">Remove</button></td>
             </tr>`
         visible.push(user)

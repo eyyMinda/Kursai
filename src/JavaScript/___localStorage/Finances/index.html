@@ -39,18 +39,32 @@
                     required type="text"></span>
             <span class="input-group-prepend">Amount: <input id="inputAmount" class="input-group-item form-control m-1"
                     required type="number"></span>
+            <div>
+                <input id="inputCheck" type="radio" name="typeOfFinance" value="payment" checked>
+                Payment
+            </div>
+            <div>
+                <input id="inputCheck" type="radio" name="typeOfFinance" value="income">
+                Income
+            </div>
             <button class="input-group-item btn bg-success m-2" id="submit">Add</button>
         </form>
     </section>
 
     <section class="container text-center" id="table">
-        <h1 class="text-light text-start">Finances</h1>
-        <table class="table table-striped bg-secondary text-start">
+
+        <div class="row">
+            <h1 class="text-light text-start col">Finances</h1>
+            <span class="col text-end"><button class="btn text-light bg-secondary" id="typeBtn">Show
+                    Payments</button></span>
+        </div>
+        <table class="table table-striped bg-light text-start">
             <thead class="thead-dark">
                 <tr>
                     <th class="col">#</th>
                     <th class="col-4" onclick="sortbyAlph('name')"><i class="fas fa-sort"></i> Name</th>
                     <th class="col" onclick="sortbyNumber('amount')"><i class="fas fa-sort"></i> Amount</th>
+                    <th class="col" onclick="sortbyAlph('type')"><i class="fas fa-sort"></i> Type</th>
                     <th class="col" onclick="sortbyNumber('dateadded')"><i class="fas fa-sort"></i> Date added</th>
                     <th class="col" onclick="sortbyNumber('time')"><i class="fas fa-sort"></i> Time</th>
                     <th class="col-1"></th>
@@ -59,13 +73,21 @@
             </thead>
             <tbody id="tbody"></tbody>
         </table>
-        <button class="btn btn-primary col-4" onclick="prevPage()"><i class="fa-solid fa-backward"></i> Previous Page</button>
+        <button class="btn btn-primary col-4" onclick="prevPage()"><i class="fa-solid fa-backward"></i> Previous
+            Page</button>
         <button class="btn btn-primary col-3 text-decoration-underline" onclick="viewAll()">View All</button>
         <button class="btn btn-primary col-4" onclick="nextPage()">Next Page <i class="fas fa-forward"></i></button>
     </section>
 
-    <section class="offset-1" style="visibility: hidden; margin: 50px auto 20px; max-width: 65%;" id="editPop">
-        <h3 class="text-light">Edit Entry</h3>
+    <section class="offset-1 text-light" style="visibility: hidden; margin: 50px auto 20px; max-width: 65%;"
+        id="editPop">
+        <h3>Edit Entry</h3>
+        <div class="my-2">
+            <input type="radio" name="editType" value="payment" id="pay">
+            Payment
+            <input type="radio" name="editType" value="income" id="inc">
+            Income
+        </div>
         <div class="input-group">
             <div class="input-group-prepend">
                 <span class="input-group-text">Name:</span>

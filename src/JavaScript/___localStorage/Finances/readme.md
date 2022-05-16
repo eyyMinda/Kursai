@@ -3,7 +3,7 @@ JSON - https://www.w3schools.com/js/js_json.asp
 Date - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Date
 
 ________________________________________________________________________________________________________________________
-Sukurti finansu sekimo puslapi
+Sukurti finansu sekimo puslapi \\
 
 * input pavadinimui ivesti \\
 * input kiekiui ivesti \\
@@ -27,3 +27,11 @@ Sukurti finansu sekimo puslapi
 * Puslapiavimas, rodome tik pirmus 10 irasu \\
  - Po lentele rodome rodykles (mygtukus) vaikscioti tarp duomenu \\
  - prie rodykliu rodome dabartini puslapi ir puslapiu kieki tarkim (1-23) (dabartinis-isviso); \\
+* I pridejima prideti checkbox (islaida ar pajamos) jei nepazymeta skaitysis kaip islaidos \\
+  - Amount laukelis prisideda neigiamas \\
+  - visa eilute turi buti raudonu tekstu (arba kazkaip pazymeta, kad tai yra islaida) \\
+  - jei pazymeta tai yra pajamos (zalias tekstas arba kitaip, kad matytus jog tai yra pajamos) \\
+* Naujas filtravimo elementas \\
+  - Atvaizduoti tik islaidas \\
+  - Atvaizduoti tik pajamas \\
+  - Datos filtras, nuo/iki \\
