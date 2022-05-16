@@ -43,27 +43,28 @@
         </form>
     </section>
 
-    <section class="container" id="table">
-        <h1 class="text-light">Finances</h1>
-        <table class="table table-striped bg-secondary">
+    <section class="container text-center" id="table">
+        <h1 class="text-light text-start">Finances</h1>
+        <table class="table table-striped bg-secondary text-start">
             <thead class="thead-dark">
-                <tr class="">
+                <tr>
                     <th class="col">#</th>
                     <th class="col-4" onclick="sortbyAlph('name')"><i class="fas fa-sort"></i> Name</th>
                     <th class="col" onclick="sortbyNumber('amount')"><i class="fas fa-sort"></i> Amount</th>
                     <th class="col" onclick="sortbyNumber('dateadded')"><i class="fas fa-sort"></i> Date added</th>
                     <th class="col" onclick="sortbyNumber('time')"><i class="fas fa-sort"></i> Time</th>
                     <th class="col-1"></th>
-                    <th class="col-2"></th>
+                    <th class="col-1"></th>
                 </tr>
             </thead>
             <tbody id="tbody"></tbody>
         </table>
-        <button class="btn btn-primary" onclick="prevPage()">Previous Page</button>
-        <button class="btn btn-primary" onclick="nextPage()">Next Page</button>
+        <button class="btn btn-primary col-4" onclick="prevPage()"><i class="fa-solid fa-backward"></i> Previous Page</button>
+        <button class="btn btn-primary col-3 text-decoration-underline" onclick="viewAll()">View All</button>
+        <button class="btn btn-primary col-4" onclick="nextPage()">Next Page <i class="fas fa-forward"></i></button>
     </section>
 
-    <section class="offset-1" style="visibility: hidden; margin: 50px auto 20px; max-width: 80%;" id="editPop">
+    <section class="offset-1" style="visibility: hidden; margin: 50px auto 20px; max-width: 65%;" id="editPop">
         <h3 class="text-light">Edit Entry</h3>
         <div class="input-group">
             <div class="input-group-prepend">

@@ -19,12 +19,13 @@ let keys = Object.keys(list[ind])
 let visible = [];
 //Sum and Pages
 let sumVisible, sumTotal, pages, startIndex, endIndex;
-let page = 1; limit = 10
+let page = 1; limit = 10; all = 0;
 
 renderTable(list)
 
-function nextPage() { page++; if (page > pages) page = pages; renderTable(list) }
-function prevPage() { page--; if (page < 1) page = 1; renderTable(list) }
+function nextPage() { all = 0; page++; if (page > pages) page = pages; renderTable(list) }
+function prevPage() { all = 0; page--; if (page < 1) page = 1; renderTable(list) }
+function viewAll() { if (!all) { all = 1 } else { all = 0; } renderTable(list) }
 function decidePage() {
     pages = parseInt(list.length / limit) + 1;
     startIndex = (Number(page) - 1) * Number(limit)
@@ -35,8 +36,10 @@ function renderTable(entries) {
     getLocal()
     decidePage()
     tbody.innerHTML = '';
-    if (visible != entries) {
-        entries = entries.slice(Number(startIndex), Number(endIndex))
+    if (!all) {
+        if (visible != entries) {
+            entries = entries.slice(Number(startIndex), Number(endIndex))
+        }
     }
     visible = []
     entries.every((user, i) => {
@@ -51,7 +54,7 @@ function renderTable(entries) {
             <td>${user.amount}</td>
             <td>${user.dateadded}</td>
             <td>${user.time}</td>
-            <td><button class='btn bg-primary' onclick="editUser('${n}',' ${am}',' ${i}')" id='editEntry'>Edit</button></td>
+            <td><button class='btn bg-primary' href='#editPop' onclick="editUser('${n}',' ${am}',' ${i}')" id='editEntry'>Edit</button></td>
             <td class='text-center'><button class='btn bg-danger' onclick="deleteUser('${i}')">Remove</button></td>
             </tr>`
         visible.push(user)
@@ -70,7 +73,7 @@ function renderTotal() {
         switch (key) {
             case 'number': cellEl.textContent = page + '/' + pages; break;
             case 'amount': cellEl.textContent = sumVisible; break;
-            case 'delBtn': cellEl.textContent = 'Total: ' + sumTotal; cellEl.classList.add('fw-bold'); break;
+            case 'delBtn': cellEl.textContent = 'Total: ' + sumTotal; cellEl.classList.add('fw-bold', 'text-center'); break;
         }
         RowEl.appendChild(cellEl);
     }
