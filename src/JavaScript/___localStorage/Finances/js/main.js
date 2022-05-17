@@ -63,7 +63,7 @@ function renderTable(entries) {
     }
     visible = []
     entries.every((user, i) => {
-        user.number = i + 1
+        user.number = page === 1 ? i + 1 : i + 1 + (page * limit / 2)
         let am, txtClr;
         am = user.amount
         if (user.type === 'income') {
