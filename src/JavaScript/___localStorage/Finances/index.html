@@ -11,8 +11,8 @@
         integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
     <script src="./js/localStorage.js" type="text/javascript" defer></script>
     <script src="./js/date.js" type="text/javascript" defer></script>
-    <script src="./js/editEntry.js" type="text/javascript" defer></script>
     <script src="./js/main.js" type="text/javascript" defer></script>
+    <script src="./js/editEntry.js" type="text/javascript" defer></script>
     <script src="./js/sort.js" type="text/javascript" defer></script>
     <script src="./js/submitEntry.js" type="text/javascript" defer></script>
     <title>Finances</title>
@@ -63,7 +63,7 @@
                 <tr>
                     <th class="col">#</th>
                     <th class="col-4" onclick="sortbyAlph('name')"><i class="fas fa-sort"></i> Name</th>
-                    <th class="col" onclick="sortbyNumber('amount')"><i class="fas fa-sort"></i> Amount</th>
+                    <th class="col" onclick="sortbyNumber('amount')"><i class="fas fa-sort"></i> Amount (€)</th>
                     <th class="col" onclick="sortbyAlph('type')"><i class="fas fa-sort"></i> Type</th>
                     <th class="col" onclick="sortbyNumber('dateadded')"><i class="fas fa-sort"></i> Date added</th>
                     <th class="col" onclick="sortbyNumber('time')"><i class="fas fa-sort"></i> Time</th>
@@ -83,10 +83,8 @@
         id="editPop">
         <h3>Edit Entry</h3>
         <div class="my-2">
-            <input type="radio" name="editType" value="payment" id="pay">
-            Payment
-            <input type="radio" name="editType" value="income" id="inc">
-            Income
+            <input type="radio" name="editType" value="payment" id="pay">Payment
+            <input type="radio" name="editType" value="income" id="inc">Income
         </div>
         <div class="input-group">
             <div class="input-group-prepend">

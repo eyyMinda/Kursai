@@ -64,25 +64,31 @@ function renderTable(entries) {
     visible = []
     entries.every((user, i) => {
         user.number = i + 1
-        let am, txtClr, lines;
+        let am, txtClr;
         am = user.amount
-        if (user.type === 'income') { txtClr = 'text-success'; lines = '+' } else { txtClr = 'text-danger'; lines = '-' }
+        if (user.type === 'income') {
+            txtClr = 'text-success';
+            user.amount = Math.abs(user.amount)
+        } else {
+            txtClr = 'text-danger';
+            user.amount = -Math.abs(user.amount)
+        }
 
         tbody.innerHTML += `<tr id='entry${i}'>
             <th>${user.number}</th>
             <td>${user.name}</td>
-            <td class='${txtClr}'>${lines}${user.amount}</td>
+            <td class='${txtClr}'>${user.amount}</td>
             <td>${user.type}</td>
             <td>${user.dateadded}</td>
             <td>${user.time}</td>
-            <td><button class='btn bg-primary' href='#editPop' onclick="editUser('${user.name}',' ${user.amount}',' ${i}')" id='editEntry'>Edit</button></td>
+            <td><a href='#editPop'><button class='btn bg-primary' onclick="editUser('${user.name}',' ${user.amount}',' ${user.type}',' ${i}')">Edit</button></a></td>
             <td class='text-center'><button class='btn bg-danger' onclick="deleteUser('${i}')">Remove</button></td>
             </tr>`
         visible.push(user)
+        sumTotal = entries.reduce((a, b) => Number(a) + Number(b.amount), 0)
         return true;
     });
     sumVisible = visible.reduce((a, b) => Number(a) + Number(b.amount), 0)
-    sumTotal = list.reduce((a, b) => Number(a) + Number(b.amount), 0)
     renderTotal()
 }
 
@@ -95,6 +101,7 @@ function renderTotal() {
             case 'number': cellEl.textContent = page + '/' + pages; break;
             case 'amount': cellEl.textContent = sumVisible; break;
             case 'delBtn': cellEl.textContent = 'Total: ' + sumTotal; cellEl.classList.add('fw-bold', 'text-center'); break;
+            default: cellEl.innerHTML = '<i class="fa-solid fa-barcode"></i>'
         }
         RowEl.appendChild(cellEl);
     }
