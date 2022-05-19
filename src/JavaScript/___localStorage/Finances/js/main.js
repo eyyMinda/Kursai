@@ -10,24 +10,21 @@ let list = [{
     'name': 'John Doe',
     'amount': '420',
     'type': 'payment',
-    'dateadded': '',
-    'time': '',
+    'dateadded': date,
+    'time': time,
     'editBtn': '',
     'delBtn': ''
 },];
 getLocal()
 let keys = Object.keys(list[ind])
-//Visible list
-let visible = [];
-//Sum and Pages
-let sumVisible, sumTotal, pages, startIndex, endIndex;
+let visible = []; //Visible list
+let sumVisible, sumTotal, pages, startIndex, endIndex; //Sum and Pages
 let page = 1; limit = 10; all = 0;
-
 renderTable(list)
 
 function nextPage() { all = 0; page++; if (page > pages) page = pages; renderTable(list) }
 function prevPage() { all = 0; page--; if (page < 1) page = 1; renderTable(list) }
-function viewAll() { if (!all) { all = 1 } else { all = 0; } renderTable(list) }
+function viewAll() { !all ? all = 1 : all = 0; renderTable(list) }
 function decidePage() {
     pages = parseInt(list.length / limit) + 1;
     startIndex = (Number(page) - 1) * Number(limit)
@@ -43,7 +40,6 @@ typeBtn.onclick = () => {
         if (isWhichType) {
             if (user.type === 'payment') payments.push(user)
             typeBtn.innerText = 'Show Incomes'
-            console.log(payments)
         } else {
             if (user.type === 'income') incomes.push(user)
             typeBtn.innerText = 'Show Payments'
@@ -56,24 +52,18 @@ function renderTable(entries) {
     getLocal()
     decidePage()
     tbody.innerHTML = '';
+    entries.map((user, i) => {user.amount = user.type === 'income' ? Math.abs(user.amount) : -Math.abs(user.amount)}) //Seperate Income and Payment
+    sumTotal = entries.reduce((a, b) => Number(a) + Number(b.amount), 0) // Count Total Amount Number
+
     if (!all) {
         if (visible != entries) {
-            entries = entries.slice(Number(startIndex), Number(endIndex))
+            entries = entries.slice(Number(startIndex), Number(endIndex)) //If not in ViewAll then Show This Page
         }
     }
     visible = []
     entries.every((user, i) => {
+        txtClr = user.amount >= 0 ? 'text-success' : 'text-danger'
         user.number = page === 1 ? i + 1 : i + 1 + (page * limit / 2)
-        let am, txtClr;
-        am = user.amount
-        if (user.type === 'income') {
-            txtClr = 'text-success';
-            user.amount = Math.abs(user.amount)
-        } else {
-            txtClr = 'text-danger';
-            user.amount = -Math.abs(user.amount)
-        }
-
         tbody.innerHTML += `<tr id='entry${i}'>
             <th>${user.number}</th>
             <td>${user.name}</td>
@@ -81,11 +71,10 @@ function renderTable(entries) {
             <td>${user.type}</td>
             <td>${user.dateadded}</td>
             <td>${user.time}</td>
-            <td><a href='#editPop'><button class='btn bg-primary' onclick="editUser('${user.name}',' ${user.amount}',' ${user.type}',' ${i}')">Edit</button></a></td>
-            <td class='text-center'><button class='btn bg-danger' onclick="deleteUser('${i}')">Remove</button></td>
+            <td>${user.editBtn}<a href='#editPop'><button class='btn bg-primary' onclick="editUser('${user.name}',' ${user.amount}',' ${user.type}',' ${i}')">Edit</button></a></td>
+            <td class='text-center'>${user.delBtn}<button class='btn bg-danger' onclick="deleteUser('${i}')">Remove</button></td>
             </tr>`
         visible.push(user)
-        sumTotal = entries.reduce((a, b) => Number(a) + Number(b.amount), 0)
         return true;
     });
     sumVisible = visible.reduce((a, b) => Number(a) + Number(b.amount), 0)
@@ -94,7 +83,6 @@ function renderTable(entries) {
 
 function renderTotal() {
     const RowEl = document.createElement('tr');
-
     for (let key of keys) {
         const cellEl = document.createElement('td'); cellEl.classList.add('bg-light');
         switch (key) {

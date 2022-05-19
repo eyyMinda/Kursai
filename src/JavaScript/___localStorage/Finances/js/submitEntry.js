@@ -7,7 +7,7 @@ submitBtn.addEventListener(('click'), e => {
     } else if (!inputAmount.value) {
         inputAmount.placeholder = 'Fill out this field!'; inputAmount.style.borderColor = 'red';
     } else {
-        list.push({ 'number': '', 'name': inputName.value, 'amount': inputAmount.value, 'type': inputCheck.split(' ').join(''), 'dateadded': date, 'time': time, 'editBtn': ' ', 'delBtn': '' })
+        list.push({ 'number': '', 'name': inputName.value, 'amount': inputAmount.value, 'type': inputCheck.split(' ').join(''), 'dateadded': date, 'time': time, 'editBtn': '', 'delBtn': '' })
         inputName.value = ''
         inputAmount.value = ''
         setLocal()

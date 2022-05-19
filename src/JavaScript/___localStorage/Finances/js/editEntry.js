@@ -20,7 +20,7 @@ function editUser(n, am, t, i) {
 function editSubmit() {
     const editCheck = document.querySelector('input[name="editType"]:checked').value
     console.log(editCheck)
-    list[ind] = { 'number': '', 'name': editName.value, 'amount': editAmount.value, 'type': editCheck, 'dateadded': date, 'time': time }
+    list[ind] = { 'number': '', 'name': editName.value, 'amount': editAmount.value, 'type': editCheck, 'dateadded': date, 'time': time, 'editBtn': '', 'delBtn': '' }
     setLocal()
     exitEdit()
 }
