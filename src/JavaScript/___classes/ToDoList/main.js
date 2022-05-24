@@ -40,7 +40,5 @@ class Item {
     }
 }
 
-
 const test = new Item({ list: ['go-sleep', 'go-work', 'go-home', 'launch-pc', 'sit', 'good boy ;)'], done: ['wake-up'] })
 addItem.onclick = () => test.add(input.value)
-// test.remove('go-work')
