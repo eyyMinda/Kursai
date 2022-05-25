@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+    <h1 id="user"></h1>
+    <input>
+    <button onclick="run()">Submit</button>
+</body>
+<script>
+    const user = document.getElementById('user')
+    const input = document.querySelector('input')
+    const url = new URL(window.location.href)
+    let username;
+    if (url.searchParams.get('username')) {
+        username = url.searchParams.get('username')
+        user.textContent = `Welcome ${username}`
+        //OR\\
+        // const username = new URLSearchParams(window.location.search).toString().split('=')[1]
+    }
+
+
+    function run() {
+        if (input.value) {
+            url.searchParams.set('username', input.value)
+            window.location.assign(url)
+            //OR\\
+            // windows.location.href = `?username=${input.value}`
+        }
+    }
+
+    ///////////Encode/\Decode\\\\\\\\\\\
+    console.log('Standart link:        ', window.location.search)
+    console.log('Decoded Encoded link: ', decodeURIComponent(encodeURIComponent(window.location.search)))
+    console.log('Decoded link:         ', decodeURIComponent(window.location.search))
+    console.log('Encoded link:         ', encodeURIComponent(window.location.search))
+    console.log('Encoded link 2x:      ', encodeURIComponent(encodeURIComponent(window.location.search)))
+    //////////////////\\\\\\\\\\\\\\\\\\
+
+</script>
+
+</html>

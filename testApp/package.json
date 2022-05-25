@@ -1,0 +1,26 @@
+{
+  "name": "test-app-with-electron",
+  "version": "1.0.0",
+  "description": "launching first app with npm using electron",
+  "main": "main.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "electron ."
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/eyyMinda/Kursai.git"
+  },
+  "keywords": [
+    "none"
+  ],
+  "author": "Minda",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/eyyMinda/Kursai/issues"
+  },
+  "homepage": "https://github.com/eyyMinda/Kursai#readme",
+  "devDependencies": {
+    "electron": "^19.0.0"
+  }
+}
