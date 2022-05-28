@@ -12,25 +12,35 @@
     <script src="main.js" type="text/javascript" defer></script>
 
     <title>Whac'a'Mole</title>
+    <style>
+        .Active {
+            cursor: pointer;
+        }
+    </style>
 </head>
 
 <body>
     <seciton class="text-center">
-        <div class="fs-1">Score: 50</div>
+        <div class="fs-1" id="scoreField">Score: 0</div>
         <div class="fs-3">Hit it 50 times to win the defense against an annoying mole!</div>
+        <div>
+            <button class="btn btn-primary" id="start">Start!</button>
+            <button class="btn btn-primary m-2" id="restart">Restart</button>
+        </div>
         <div class="container bg-gradient bg-dark">
             <div class="row row-cols-3">
-              <div class="col border" style="height: 250px;"><img class="m-4" src="./Assets/Mole.png" height="200px"></div>
-              <div class="col border" style="height: 250px;"></div>
-              <div class="col border" style="height: 250px;"></div>
-              <div class="col border" style="height: 250px;"></div>
-              <div class="col border" style="height: 250px;"></div>
-              <div class="col border" style="height: 250px;"></div>
-              <div class="col border" style="height: 250px;"></div>
-              <div class="col border" style="height: 250px;"></div>
-              <div class="col border" style="height: 250px;"></div>
+                <div class="col border" style="height: 250px;"></div>
+                <div class="col border" style="height: 250px;"></div>
+                <div class="col border" style="height: 250px;"></div>
+                <div class="col border" style="height: 250px;"></div>
+                <div class="col border" style="height: 250px;"></div>
+                <div class="col border" style="height: 250px;"></div>
+                <div class="col border" style="height: 250px;"></div>
+                <div class="col border" style="height: 250px;"></div>
+                <div class="col border" style="height: 250px;"></div>
             </div>
-          </div>
+        </div>
+
     </seciton>
 </body>
 

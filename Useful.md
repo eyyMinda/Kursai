@@ -28,3 +28,15 @@ String.prototype.toJadenCase = function () {
          return word.charAt(0).toUpperCase() + word.slice(1)}).join(' ')
 };
 //Use 'string'.toJadenCase()
+\\Random Seperation\\
+puzzle = "2.............62....1....7...6..8...3...9...7...6..4...4....8....52.............3"
+puzzle = puzzle.split('.').join('-')
+
+newPuzzle = []
+for (let p = 0; p < puzzle.length; p++) {
+    if (p == 8) {
+        newPuzzle.push(puzzle.slice(0, p))
+    } else if (p == 17 || p == 26 || p == 35 || p == 44 || p == 53 || p == 62 || p == 71 || p == 80) {
+        newPuzzle.push(puzzle.slice(p - 8, p + 1))
+    }
+}

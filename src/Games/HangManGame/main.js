@@ -66,11 +66,10 @@ addEventListener(('keyup'), (e) => {
         //Check if Lost
         if (left < 0) {
             console.log('noob')
-            wrong.innerHTML = 'noob'
+            wrong.innerHTML = `noob the answer was '${randomWord}'`
             lives.innerHTML = `<i class="fa-solid fa-skull m-4"> You lost</i><br>
             <button class="btn border" onclick='anotherOne()'>Try Another One</button>`
         }
-        console.log(word)
         //Check if Won
         if (word.join('') === guessed.join('')) {
             console.log('You Won!')
