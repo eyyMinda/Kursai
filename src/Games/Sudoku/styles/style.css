@@ -49,6 +49,16 @@ h2 {
     align-items: center;
     font-size: 1.2rem
 }
+.btn {
+    font-size: 16px;
+    padding: 5px 10px;
+    border-radius: 10px;
+    background-color: blanchedalmond;
+}
+.btn:hover {
+    background-color:aliceblue;
+    transform: scale(1.05);
+}
 .selected {
     background-color: gray;
 }

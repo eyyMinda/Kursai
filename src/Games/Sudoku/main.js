@@ -1,6 +1,3 @@
-let numbers, digits, numSelected;
-let wrong = 0;
-
 let board = [
     "--74916-5",
     "2---6-3-9",
@@ -34,19 +31,17 @@ let current = [
     "---------",
     "---------"
 ]
-let wonRows = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+let numbers, digits, numSelected;
+let wrong = 0, isSolved = false;
 
 const boardField = document.getElementById('board')
 const digitsField = document.getElementById('digits')
 const faults = document.getElementById('faults')
 
-window.onload = function () { getNewBoard() }
+window.onload = function () { renderDigits(); getNewBoard() }
 
-
-function renderGame() {
-    current = board
+function renderDigits() {
     digitsField.innerHTML = ''
-    boardField.innerHTML = ''
     for (let i = 1; i < 10; i++) {
         let digit = document.createElement('div');
         digit.classList.add('digit');
@@ -54,6 +49,13 @@ function renderGame() {
         digit.addEventListener('click', selectNum);
         digitsField.appendChild(digit);
     }
+}
+
+function renderGame(param) {
+    if (param === solved) { isSolved = true } else { isSolved = false }
+    current = board
+    boardField.innerHTML = ''
+
     for (let r = 0; r < 9; r++) {
         for (let c = 0; c < 9; c++) {
             let tile = document.createElement('div')
@@ -62,11 +64,10 @@ function renderGame() {
             tile.addEventListener('click', selectTile);
             if (r == 2 || r == 5) { tile.classList.add('horizontal-seperation') }
             if (c == 2 || c == 5) { tile.classList.add('vertical-seperation') }
-            if (board[r][c] !== '-' && board[r][c] !== 0) {
-                tile.textContent = board[r][c]
+            if (param[r][c] !== '-' && param[r][c] !== 0) {
+                tile.textContent = param[r][c]
                 tile.classList.add('tile-start')
             }
-            current[r][c] = board[r][c]
             boardField.appendChild(tile)
         }
     }
@@ -80,27 +81,39 @@ function selectNum() {
     numSelected.classList.add('selected')
 }
 
+function selectTile() {
+    if (!current.toString().includes('0')) { alert('Great job logic boy!'); return } else
+        if (isSolved) { alert('It would be nice if you would solve it yourself, but you know... you do you.') }
+        else { console.log('Keep going!') }
+    let a = this.id.split('-');
+    if (numSelected) {
+        if (solved[a[0]][a[1]] !== Number(numSelected.textContent)) {
+            wrong++;
+            faults.innerHTML = `Wrong attempts: ${wrong}`;
+            return
+        }
+        if (this.innerText == '') {
+            this.innerText = numSelected.textContent
+            current[a[0]][a[1]] = Number(numSelected.textContent)
+        }
+    }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
 String.prototype.replaceAt = function (index, char) { //Replace a number in a tile \\ Works only if board is an array of strings
     var a = this.split("");
     a[index] = char;
     return a.join("");
 }
-function selectTile() {
-    let a = this.id.split('-');
-    if (numSelected) {
-        if (this.innerText != '') return
-        if (solved[a[0]][a[1]] !== numSelected.textContent) {
-            wrong++;
-            faults.innerHTML = `Wrong attempts: ${wrong}`;
-            return
-        }
-        this.innerText = numSelected.textContent
-        current[a[0]] = current[a[0]].replaceAt(a[1], numSelected.textContent)
-    }
-
-    for (let i = 0; i < current.length; i++) {
-        if (!current[i].includes('-') && !current[i].includes('0')) wonRows[i] = 0
-    }
-    console.log(wonRows)
-    if (wonRows == [0, 0, 0, 0, 0, 0, 0, 0, 0]) alert('You won')
-}
+// current[a[0]] = current[a[0]].replaceAt(a[1], numSelected.textContent) //For array of Strings
