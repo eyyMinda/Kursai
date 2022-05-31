@@ -13,6 +13,8 @@ function getNewBoard() {
                 board = data.board; renderGame(board); getSolved();
             }, 1)
         })
+    wrong = 0;
+    faults.innerHTML = `Wrong attempts: ${wrong}`;
 }
 
 function getSolved(param) {
