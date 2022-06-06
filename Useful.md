@@ -14,6 +14,16 @@ Font Awesome Link --
 -->
 
 --------------------------------------------------------------------------------------------------------
+
+\\\\\\\\\RegEx\\\\\\\\\
+ (example: (/(^\w{1})|(\s+\w{1})/g)   )
+╚ ^ matches the beginning of the string.
+╚ \w matches any word character.
+╚ {1} takes only the first character.
+╚ Thus, ^\w{1} matches the first letter of the word.
+╚ | works like the boolean OR. It matches the expression after and before the |.
+╚ \s+ matches any amount of whitespace between the words (for example spaces, tabs, or line breaks).
+
 \\for Array only\\
 .match(/\b(\w+)\b/g) //Seperate a string of multiple words by one word
 
