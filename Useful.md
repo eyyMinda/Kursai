@@ -16,7 +16,7 @@ Font Awesome Link --
 --------------------------------------------------------------------------------------------------------
 
 \\\\\\\\\RegEx\\\\\\\\\
- (example: (/(^\w{1})|(\s+\w{1})/g)   )
+ (example:   /(^\w{1})|(\s+\w{1})/g   )
 ╚ ^ matches the beginning of the string.
 ╚ \w matches any word character.
 ╚ {1} takes only the first character.
@@ -39,14 +39,14 @@ String.prototype.toJadenCase = function () {
 };
 //Use 'string'.toJadenCase()
 \\Random Seperation\\
-puzzle = "2.............62....1....7...6..8...3...9...7...6..4...4....8....52.............3"
-puzzle = puzzle.split('.').join('-')
+let puzzle = "2.............62....1....7...6..8...3...9...7...6..4...4....8....52.............3";
+puzzle = puzzle.split('.').join('-');
 
 newPuzzle = []
 for (let p = 0; p < puzzle.length; p++) {
     if (p == 8) {
-        newPuzzle.push(puzzle.slice(0, p))
+        newPuzzle.push(puzzle.slice(0, p));
     } else if (p == 17 || p == 26 || p == 35 || p == 44 || p == 53 || p == 62 || p == 71 || p == 80) {
-        newPuzzle.push(puzzle.slice(p - 8, p + 1))
+        newPuzzle.push(puzzle.slice(p - 8, p + 1));
     }
 }
